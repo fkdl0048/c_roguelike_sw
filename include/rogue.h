@@ -34,11 +34,13 @@ void closeGame(void);
 
 // map.c functions
 Tile** createMapTiles(void);
+Position setupMap(void);
 void freeMap(void);
 
 // player.c functions
 Entity* createPlayer(Position start_pos); 
 void handleInput(int input);
+void movePlayer(Position newPos);
 
 // externs
 extern const int MAP_HEIGHT;

@@ -8,11 +8,15 @@ Tile** map;
 
 int main(void)
 {
+
+  Position start_pos;
+
   cursesSetup();
 
-  Position start_pos = { 10, 20 }; //Postion구조체 변수 할당 / 시작위치 초기화  
-  player = createPlayer(start_pos); //해당 포인터변수가 동적할당된 player를 가르킴
   map = createMapTiles();
+  start_pos = setupMap();
+  player = createPlayer(start_pos);
+
   gameLoop();
 
   closeGame();

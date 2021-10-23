@@ -17,6 +17,22 @@ Tile** createMapTiles(void)
     return tiles;
 }
 
+Position setupMap(void)
+{
+    Position start_pos = {10,50};
+
+    for (int y = 5; y < 15; y++)
+    {
+        for (int x = 40; x < 60; x++)
+        {
+            map[y][x].ch = '.';
+            map[y][x].walkable = true;
+        }
+    }
+
+    return start_pos;
+}
+
 void freeMap(void)
 {
     for (int y = 0; y < MAP_HEIGHT; y++)
