@@ -33,7 +33,7 @@ void gameLoop(void);
 void closeGame(void);
 
 // map.c functions
-Tile** creatMapTiles(void);
+Tile** createMapTiles(void);
 void freeMap(void);
 
 // player.c functions
