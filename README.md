@@ -6,3 +6,9 @@
 
 * 10 / 09 깃허브 연동 / 아이디어 회의   
 프로토 타입 구현. 플레이어 움직임
+
+* 10 / 23 맵 구
+
+---  
+
+*참고 링크:https://dev.to/ignaoya/the-c-roguelike-tutorial-part-0-the-setup-1pfo*
