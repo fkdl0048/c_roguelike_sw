@@ -27,4 +27,5 @@ void closeGame(void)
 {
     endwin(); // ncurses 시스템종료
     free(player); // player 동적할당 해제
+    freeMap(); //map 동적할당 해제
 }

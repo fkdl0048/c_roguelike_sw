@@ -1,6 +1,6 @@
 #include <rogue.h>
 
-void drawMap(void)
+void drawMap(void) // 맵 그림
 {
     for(int y = 0; y < MAP_HEIGHT; y++)
     {

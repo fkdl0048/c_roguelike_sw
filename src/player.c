@@ -43,7 +43,7 @@ void handleInput(int input)
 
 void movePlayer(Position newPos)
 {
-  if(map[newPos.y][newPos.x].walkable)
+  if(map[newPos.y][newPos.x].walkable) //det검사 / 실제 이동부분
   {
     player->pos.y = newPos.y;
     player->pos.x = newPos.x;

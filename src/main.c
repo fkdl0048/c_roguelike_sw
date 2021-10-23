@@ -13,7 +13,7 @@ int main(void)
 
   cursesSetup();
 
-  map = createMapTiles();
+  map = createMapTiles(); 
   start_pos = setupMap();
   player = createPlayer(start_pos);
 
