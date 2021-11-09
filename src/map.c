@@ -25,7 +25,7 @@ Position setupMap(void)
     {
         for (int x = 40; x < 60; x++)
         {
-            map[y][x].ch = '.';
+            map[y][x].ch = ' ';
             map[y][x].walkable = true; //평지 걷기 가능한
         }
     }
