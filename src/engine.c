@@ -13,8 +13,9 @@ void gameLoop(void)
 
     drawEverything();
 
-    while(ch = getch()) //사용자로 부터 키 입력받으며 무한루프
+    while(1) //사용자로 부터 키 입력받으며 무한루프
     {
+        ch = getch();
         if (ch == 'q') // 종료키 설정
             break;
 
