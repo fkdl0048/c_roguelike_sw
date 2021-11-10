@@ -21,7 +21,7 @@ int main(void)
   inven = createInventory();
 
   gameLoop();
-  //printf("%d\n", inven->cardkey);
+  
   closeGame();
 
   return 0;
