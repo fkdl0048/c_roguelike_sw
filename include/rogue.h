@@ -1,7 +1,10 @@
 #ifndef ROGUE_H
 #define ROGUE_H
 
-#include <ncurses.h> // window.h랑 비슷한 헤더파일
+#define TRUE 1
+#define FALSE 0
+
+#include <curses.h> // window.h랑 비슷한 헤더파일
 #include <stdlib.h> // 동적할당을 위해
 
 typedef struct //구조체 선언

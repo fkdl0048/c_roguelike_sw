@@ -10,7 +10,7 @@ Tile** createMapTiles(void)
         for (int x = 0; x < MAP_WIDTH; x++)
         {
             tiles[y][x].ch = '#';
-            tiles[y][x].walkable = false; //false 즉, 벽 걷기 불가능한.
+            tiles[y][x].walkable = FALSE; //false 즉, 벽 걷기 불가능한.
         }
     }
 
@@ -26,7 +26,7 @@ Position setupMap(void)
         for (int x = 40; x < 60; x++)
         {
             map[y][x].ch = ' ';
-            map[y][x].walkable = true; //평지 걷기 가능한
+            map[y][x].walkable = TRUE; //평지 걷기 가능한
         }
     }
 
