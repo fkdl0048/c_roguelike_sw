@@ -34,6 +34,10 @@ void handleInput(int input)
     case 'd':
       newPos.x++;
       break;
+    case 'x': // 테스트
+      curLocationFlag++;
+      player->pos = setupMap();
+      break;
     default:
       break;
   }

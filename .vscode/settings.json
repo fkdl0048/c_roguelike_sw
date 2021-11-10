@@ -13,6 +13,11 @@
   "C_Cpp_Runner.enableWarnings": true,
   "C_Cpp_Runner.warningsAsError": false,
   "files.associations": {
-    "stdlib.h": "c"
+    "*.py": "python",
+    "stdlib.h": "c",
+    "data.h": "c",
+    "time.h": "c",
+    "rogue.h": "c",
+    "curses.h": "c"
   }
 }
