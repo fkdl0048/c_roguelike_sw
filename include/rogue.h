@@ -6,6 +6,7 @@
 
 #include <curses.h> // window.h랑 비슷한 헤더파일
 #include <stdlib.h> // 동적할당을 위해
+#include <time.h>
 
 //좌표
 typedef struct //구조체 선언
@@ -62,5 +63,6 @@ extern const int MAP_WIDTH;
 extern Entity* player; //전역변수 공유 -> 다른 소스파일에 정의가 되어 있으니 찾아가서 사용할 것 이라는 뜻
 extern Tile** map;
 extern Inventory* inven; //인벤토리 객체
+//extern int time;
 
 #endif
