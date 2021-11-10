@@ -1,4 +1,5 @@
 #include <rogue.h>
+
 void createInventory(){
     inven = calloc(1, sizeof(Inventory));
     inven->cardkey = 0;
@@ -10,7 +11,7 @@ void createInventory(){
 void addInventory(int id){
     switch(id){
         case 0:
-            inven->key++;
+           inven->key++;
             break;
         case 1:
             inven->cardkey++;
