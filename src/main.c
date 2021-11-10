@@ -18,7 +18,7 @@ int main(void)
   player = createPlayer(start_pos);
 
   gameLoop();
-
+  printf("%d\n", inven->cardkey);
   closeGame();
 
   return 0;
