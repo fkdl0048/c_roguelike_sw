@@ -13,7 +13,7 @@ rogue:
 	$(CC) $(SOURCES) $(CFLAGS) -o rogue
 
 run:
-	./rogue
+	./rogue.exe
 
 clean:
 	del rogue.exe

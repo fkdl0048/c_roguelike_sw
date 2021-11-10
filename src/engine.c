@@ -18,7 +18,6 @@ void gameLoop(void)
         ch = getch();
         if (ch == 'q') // 종료키 설정
             break;
-
         handleInput(ch);
         drawEverything();
     }
