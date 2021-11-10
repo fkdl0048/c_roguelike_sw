@@ -40,3 +40,9 @@ c언어를 이용해서 로그라이크 && 퍼즐 게임을 개발하는 과정�
 https://dev.to/ignaoya/the-c-roguelike-tutorial-part-0-the-setup-1pfo  
 
 참고
+
+---  
+
+commit massage rules  
+
+date version -massage
