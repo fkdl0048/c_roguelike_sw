@@ -17,6 +17,7 @@ int main(void)
   map = createMapTiles(); 
   start_pos = setupMap();
   player = createPlayer(start_pos);
+  inven = createInventory();
 
   gameLoop();
   //printf("%d\n", inven->cardkey);

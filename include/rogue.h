@@ -56,6 +56,9 @@ Entity* createPlayer(Position start_pos);
 void handleInput(int input);
 void movePlayer(Position newPos);
 
+// inven.c functions
+Inventory* createInventory();
+
 // externs
 extern const int MAP_HEIGHT;
 extern const int MAP_WIDTH;
