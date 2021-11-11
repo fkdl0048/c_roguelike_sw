@@ -26,6 +26,7 @@ void resetMapTiles() // 벽 다시그리기
 
 void setFirstFloor(void)
 {
+    //1층
     for (int y = firstFloorY; y < firstFloorHeight; y++)
     {
         for (int x = firstFloorX; x < firstFloorWidth; x++)
@@ -40,10 +41,25 @@ void setFirstFloor(void)
             map[y][x].walkable = TRUE;
         }
     }
+    //계단
+    for (int x = firstFloorX, y = firstFloorY; x < firstFloorX + 3; x++)
+    {
+        map[y][x].ch = ']';
+        map[y][x].walkable = FALSE;
+    }
+    for (int x = firstFloorWidth - 3, y = firstFloorY; x < firstFloorWidth; x++)
+    {
+        map[y][x].ch = '[';
+        map[y][x].walkable = FALSE;
+    }
+    //아이템
+    map[10][10].ch = '+';
+    map[10][10].walkable = FALSE;
 }
 
 void setSecondFloor(void)
 {
+    //2층 복도
     for (int y = secondFloorY; y < secondFloorHeight; y++)
     {
         for (int x = secondFloorX; x < secondFloorWidth; x++)
@@ -67,6 +83,17 @@ void setSecondFloor(void)
             map[y][x].ch = ' ';
             map[y][x].walkable = TRUE;
         }
+    }
+    //계단
+    for (int x = secondFloorX, y = secondFloorY; x < secondFloorX + 3; x++)
+    {
+        map[y][x].ch = ']';
+            map[y][x].walkable = FALSE;
+    }
+    for (int x = secondFloorWidth - 3, y = secondFloorY; x < secondFloorWidth; x++)
+    {
+        map[y][x].ch = '[';
+            map[y][x].walkable = FALSE;
     }
 }
 
