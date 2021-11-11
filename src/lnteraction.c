@@ -2,16 +2,12 @@
 
 void upFloor(void){
     curLocationFlag++;
-    Position tmp = setupMap();
-    player->pos.x = tmp.x;
-    player->pos.y = tmp.y;
+    player->pos = setupMap();
 }
 
 void downFloor(void){
     curLocationFlag--;
-    Position tmp = setupMap();
-    player->pos.x = tmp.x;
-    player->pos.y = tmp.y;
+    player->pos = setupMap();
 }
 
 void callInteraction(void){
