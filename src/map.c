@@ -14,9 +14,9 @@ Tile** createMapTiles()
 
 void resetMapTiles() // 벽 다시그리기
 {
-    for(int y = 0; y < MAP_HEIGHT; y++)
+    for(int y = 2; y < MAP_HEIGHT; y++)
     {
-        for (int x = 0; x < MAP_WIDTH; x++)
+        for (int x = 2; x < MAP_WIDTH; x++)
         {
             map[y][x].ch = '#';
             map[y][x].walkable = FALSE; //false 즉, 벽 걷기 불가능한.

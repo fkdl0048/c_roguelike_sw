@@ -8,8 +8,8 @@ int curLocationFlag = 0;
 int MAP_HEIGHT = 23;
 int MAP_WIDTH = 90; 
 // map pos
-int firstFloorX = 2;
-int firstFloorY = 1;
+int firstFloorX = 4;
+int firstFloorY = 3;
 int secondFloorX = 2;
 int secondFloorY = 1; 
 //Position firstFloorPos1,2};//수정
@@ -36,7 +36,7 @@ int curPosFrameHeight = 3;
 int timerFrameWidth = 24;
 int timerFrameHeight = 3;
 int invenFrameWidth = 24;
-int invenFrameHeight = 10;
+int invenFrameHeight = 13;
 int massageBoxWidth = 90;
 int massageBoxHeight = 3;
 

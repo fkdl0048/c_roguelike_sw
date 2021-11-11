@@ -2,9 +2,9 @@
 
 void drawMap(void) // 맵 그림
 {
-    for(int y = 0; y < MAP_HEIGHT; y++)
+    for(int y = 2; y < MAP_HEIGHT; y++)
     {
-        for(int x = 0; x < MAP_WIDTH; x++)
+        for(int x = 2; x < MAP_WIDTH; x++)
         {
             mvaddch(y,x,map[y][x].ch);
         }
@@ -36,6 +36,7 @@ void drawRect(int x,int y,int width, int height)
 
 void drawFrame()
 {
+    drawRect(0,0,MAP_WIDTH,MAP_HEIGHT);
     drawRect(curPosFrameX,curPosFrameY,curPosFrameWidth,curPosFrameHeight);
     drawRect(timerFrameX,timerFrameY,timerFrameWidth,timerFrameHeight);
     drawRect(invenFrameX,invenFrameY,invenFrameWidth,invenFrameHeight);
