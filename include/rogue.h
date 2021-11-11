@@ -59,7 +59,16 @@ void handleInput(int input);
 void movePlayer(Position newPos);
 
 // inven.c functions
-Inventory* createInventory();
+Inventory* createInventory(void);
+
+// time.c functions
+
+// message.c functions
+void printMassge(void);
+
+// ineraction.c functions
+void callInteraction(void);
+
 
 // externs
 // extern const int MAP_HEIGHT;

@@ -34,19 +34,24 @@ void drawRect(int x,int y,int width, int height)
     }
 }
 
-void drawFrame()
+void drawFrame(void)
 {
-    drawRect(0,0,MAP_WIDTH,MAP_HEIGHT);
-    drawRect(curPosFrameX,curPosFrameY,curPosFrameWidth,curPosFrameHeight);
-    drawRect(timerFrameX,timerFrameY,timerFrameWidth,timerFrameHeight);
-    drawRect(invenFrameX,invenFrameY,invenFrameWidth,invenFrameHeight);
-    drawRect(massageBoxFrameX,massageBoxFrameY,massageBoxWidth,massageBoxHeight);
+    drawRect(0,0,MAP_WIDTH,MAP_HEIGHT); // 메인 화면 프레임
+    drawRect(curPosFrameX,curPosFrameY,curPosFrameWidth,curPosFrameHeight); // 현재위치 프레임
+    drawRect(timerFrameX,timerFrameY,timerFrameWidth,timerFrameHeight); // 타이머 프레임
+    drawRect(invenFrameX,invenFrameY,invenFrameWidth,invenFrameHeight); // 인벤토리 프레임
+    drawRect(massageBoxFrameX,massageBoxFrameY,massageBoxWidth,massageBoxHeight); // 메세지 박스 프레임
+}
+
+void drawMassagebox(void){
+    printMassge();
 }
 
 void drawEverything(void)
 {
     clear();
-    drawMap();
     drawFrame(); 
+    drawMap();
+    drawMassagebox();
     drawEntity(player);
 }
