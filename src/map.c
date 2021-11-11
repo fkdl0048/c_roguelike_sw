@@ -14,9 +14,9 @@ Tile** createMapTiles()
 
 void resetMapTiles() // 벽 다시그리기
 {
-    for(int y = 2; y < MAP_HEIGHT; y++)
+    for(int y = 0; y < MAP_HEIGHT; y++)
     {
-        for (int x = 2; x < MAP_WIDTH; x++)
+        for (int x = 0; x < MAP_WIDTH; x++)
         {
             map[y][x].ch = '#';
             map[y][x].walkable = FALSE; //false 즉, 벽 걷기 불가능한.
@@ -34,6 +34,12 @@ void setFirstFloor(void)
             map[y][x].walkable = TRUE;
         }
     }
+    for (int y = firstFloorHeight;y < firstFloorHeight + 4; y++){
+        for (int x = (firstFloorWidth + firstFloorX)/2 - 8; x < (firstFloorWidth + firstFloorX)/2 + 8; x++){
+            map[y][x].ch = ' ';
+            map[y][x].walkable = TRUE;
+        }
+    }
 }
 
 void setSecondFloor(void)
@@ -41,6 +47,22 @@ void setSecondFloor(void)
     for (int y = secondFloorY; y < secondFloorHeight; y++)
     {
         for (int x = secondFloorX; x < secondFloorWidth; x++)
+        {
+            map[y][x].ch = ' ';
+            map[y][x].walkable = TRUE;
+        }
+    }
+    for (int y = secondFloorY + 3; y < secondFloorHeight - 3; y++)
+    {
+        for (int x = secondFloorX + 6; x < secondFloorWidth - 6; x++)
+        {
+            map[y][x].ch = '#';
+            map[y][x].walkable = FALSE;
+        }
+    }
+    for (int y = secondFloorY + 3; y < secondFloorHeight - 3; y++)
+    {
+        for (int x = (secondFloorX + secondFloorWidth)/2 - 1; x < (secondFloorX + secondFloorWidth)/2 + 1; x++)
         {
             map[y][x].ch = ' ';
             map[y][x].walkable = TRUE;
