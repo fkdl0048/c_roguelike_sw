@@ -10,8 +10,11 @@ extern int secondFloorY;
 // map size
 extern int firstFloorWidth;
 extern int firstFloorHeight;
+extern int firstFloorRoomSize;
+extern int stairSize;
 extern int secondFloorWidth;
 extern int secondFloorHeight;
+extern int secondFloorCenterSize;
 
 // Frame pos
 extern int curPosFrameX;

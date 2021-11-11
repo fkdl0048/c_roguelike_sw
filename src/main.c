@@ -17,8 +17,11 @@ int secondFloorY = 3;
 // map size
 int firstFloorWidth = 88;
 int firstFloorHeight = 15;
+int firstFloorRoomSize = 4;
+int stairSize = 3;
 int secondFloorWidth = 88;
 int secondFloorHeight = 15;
+int secondFloorCenterSize = 3;
 
 // Frame pos
 int curPosFrameX = 94;

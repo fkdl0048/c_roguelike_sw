@@ -35,19 +35,19 @@ void setFirstFloor(void)
             map[y][x].walkable = TRUE;
         }
     }
-    for (int y = firstFloorHeight;y < firstFloorHeight + 4; y++){
-        for (int x = (firstFloorWidth + firstFloorX)/2 - 8; x < (firstFloorWidth + firstFloorX)/2 + 8; x++){
+    for (int y = firstFloorHeight;y < firstFloorHeight + firstFloorRoomSize; y++){
+        for (int x = (firstFloorWidth + firstFloorX)/2 - 2 * firstFloorRoomSize; x < (firstFloorWidth + firstFloorX)/2 + 2 * firstFloorRoomSize; x++){
             map[y][x].ch = ' ';
             map[y][x].walkable = TRUE;
         }
     }
     //계단
-    for (int x = firstFloorX, y = firstFloorY; x < firstFloorX + 3; x++)
+    for (int x = firstFloorX, y = firstFloorY; x < firstFloorX + stairSize; x++)
     {
         map[y][x].ch = ']';
         map[y][x].walkable = FALSE;
     }
-    for (int x = firstFloorWidth - 3, y = firstFloorY; x < firstFloorWidth; x++)
+    for (int x = firstFloorWidth - stairSize, y = firstFloorY; x < firstFloorWidth; x++)
     {
         map[y][x].ch = '[';
         map[y][x].walkable = FALSE;
@@ -68,15 +68,15 @@ void setSecondFloor(void)
             map[y][x].walkable = TRUE;
         }
     }
-    for (int y = secondFloorY + 3; y < secondFloorHeight - 3; y++)
+    for (int y = secondFloorY + secondFloorCenterSize; y < secondFloorHeight - secondFloorCenterSize; y++)
     {
-        for (int x = secondFloorX + 6; x < secondFloorWidth - 6; x++)
+        for (int x = secondFloorX + 2 * secondFloorCenterSize; x < secondFloorWidth - 2 * secondFloorCenterSize; x++)
         {
             map[y][x].ch = '#';
             map[y][x].walkable = FALSE;
         }
     }
-    for (int y = secondFloorY + 3; y < secondFloorHeight - 3; y++)
+    for (int y = secondFloorY + secondFloorCenterSize; y < secondFloorHeight - secondFloorCenterSize; y++)
     {
         for (int x = (secondFloorX + secondFloorWidth)/2 - 1; x < (secondFloorX + secondFloorWidth)/2 + 1; x++)
         {
@@ -85,12 +85,12 @@ void setSecondFloor(void)
         }
     }
     //계단
-    for (int x = secondFloorX, y = secondFloorY; x < secondFloorX + 3; x++)
+    for (int x = secondFloorX, y = secondFloorY; x < secondFloorX + stairSize; x++)
     {
         map[y][x].ch = ']';
             map[y][x].walkable = FALSE;
     }
-    for (int x = secondFloorWidth - 3, y = secondFloorY; x < secondFloorWidth; x++)
+    for (int x = secondFloorWidth - stairSize, y = secondFloorY; x < secondFloorWidth; x++)
     {
         map[y][x].ch = '[';
             map[y][x].walkable = FALSE;
