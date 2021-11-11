@@ -8,6 +8,7 @@
 #include <stdlib.h> // 동적할당을 위해
 #include <time.h> //데이터 파일
 #include <data.h>
+#include <string.h>
 
 //좌표
 typedef struct //구조체 선언
@@ -64,7 +65,8 @@ Inventory* createInventory(void);
 // time.c functions
 
 // message.c functions
-void printMassge(void);
+void printMassage(char *str);
+void callMassageBox(char check);
 
 // ineraction.c functions
 void callInteraction(void);

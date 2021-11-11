@@ -52,7 +52,7 @@ void setFirstFloor(void)
         map[y][x].ch = '[';
         map[y][x].walkable = FALSE;
     }
-    //아이템
+    //아이템 test
     map[10][10].ch = '+';
     map[10][10].walkable = FALSE;
 }
@@ -116,13 +116,13 @@ Position setupMap(void)
     Position start_pos;
     if(curLocationFlag == 0){
         setFirstFloor();
-        start_pos.x = 10;
-        start_pos.y = 10;
+        start_pos.x = 11;
+        start_pos.y = 11;
     }
     else if(curLocationFlag == 1){
         setSecondFloor();
-        start_pos.x = 2;
-        start_pos.y = 2;
+        start_pos.x = 5;
+        start_pos.y = 5;
     }
     else if(curLocationFlag == 2){
 

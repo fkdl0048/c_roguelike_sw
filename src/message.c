@@ -1,5 +1,11 @@
 #include <rogue.h>
 
-void printMassge(void){
-    mvaddstr(27,3,"Hello!");
+void printMassage(char *str){
+    mvaddstr(27,3,str);
+}
+
+void callMassageBox(char check){
+    if(check){
+
+    } //== 검사
 }

@@ -44,7 +44,7 @@ void drawFrame(void)
 }
 
 void drawMassagebox(void){
-    printMassge();
+    printMassage("test!!!!!!");
 }
 
 void drawEverything(void)

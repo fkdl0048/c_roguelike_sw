@@ -36,7 +36,7 @@ void handleInput(int input)
       break;
     case 'p': // 상호작용
       callInteraction();
-      break;
+      return;
     default:
       break;
   }
