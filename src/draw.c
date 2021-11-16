@@ -30,6 +30,7 @@ void drawRect(int x,int y,int width, int height)
             else if(j == 1 || j == width){
                 mvaddch(y+i,x+j,'|');
             }
+                mvprintw(y+i,x+j,"");
         }
     }
 }
