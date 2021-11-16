@@ -131,11 +131,11 @@ Position setupMap(void)
     return start_pos;
 }
 
-void freeMap(void) //동적할당 해체부
+void freeMap(void)
 {
     for (int y = 0; y < MAP_HEIGHT; y++)
     {
         free(map[y]);
     }
     free(map);
-} //아직 사용안함 closegame부분에 넣어야할듯?
+} 
