@@ -1,5 +1,7 @@
 #include <rogue.h>
 
+char *fmt;
+
 void drawMap(void) // 맵 그림
 {
     for(int y = 2; y < MAP_HEIGHT; y++)
@@ -22,15 +24,19 @@ void drawRect(int x,int y,int width, int height)
     for(i = 1; i <= height;i++){
         for (j = 1; j <= width; j++){
             if((i == 1 || i == height) && (j == 1 || j == width)){
-                mvaddch(y+i,x+j,'*');
+                if(i == 1 && j == 1)
+                    mvaddch(y+i,x+j,ACS_ULCORNER);
+                else if(i == height && j == 1)
+                    mvaddch(y+i,x+j,ACS_URCORNER);
+                else if(j == 1 && i == height)
+                    mvaddch(y+i,x+j,ACS_LLCORNER);
+                else if(j == height && j == height) 
+                    mvaddch(y+i,x+j,ACS_LRCORNER);
             }
-            else if(i == 1 || i == height){
-                mvaddch(y+i,x+j,'-');
-            }
-            else if(j == 1 || j == width){
-                mvaddch(y+i,x+j,'|');
-            }
-                mvprintw(y+i,x+j,"");
+            else if(i == 1 || i == height)
+                mvaddch(y+i,x+j,ACS_HLINE);
+            else if(j == 1 || j == width)
+                mvaddch(y+i,x+j,ACS_VLINE);
         }
     }
 }

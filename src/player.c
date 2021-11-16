@@ -13,7 +13,6 @@ Entity* createPlayer(Position start_pos)
 
 void handleInput(int input) 
 {
-
   Position newPos = {player->pos.y, player->pos.x};
 
   switch(input)

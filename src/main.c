@@ -47,6 +47,8 @@ int massageBoxHeight = 3;
 
 int main(void)
 {
+  //setlocale(LC_ALL, "ko_KR.utf8");
+  //setlocale(LC_CTYPE, "ko_KR.utf8"); utg8 test 삭제 금지
 
   Position start_pos;
 

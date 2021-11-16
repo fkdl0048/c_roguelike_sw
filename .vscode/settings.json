@@ -18,6 +18,7 @@
     "data.h": "c",
     "time.h": "c",
     "rogue.h": "c",
-    "curses.h": "c"
+    "curses.h": "c",
+    "ncurses.h": "c"
   }
 }
