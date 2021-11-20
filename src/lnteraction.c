@@ -10,6 +10,16 @@ void downFloor(void){
     setupMap();
 }
 
+void enterRoom(void){
+    curLocationFlag++;
+    player->pos = setupMap();
+}
+
+void exitRoom(void){
+    curLocationFlag--;
+    player->pos = setupMap();
+}
+
 void callInteraction(void){
     Position degPos[4] = {{-1,0},{0,-1},{0,1},{1,0}};
     Tile temp;
@@ -23,6 +33,12 @@ void callInteraction(void){
                 upFloor();
             else if(curLocationFlag == 1)
                 downFloor();
+        }
+        else if (interch == '+'){
+            if (curLocationFlag == 1)
+                enterRoom();
+            else if(curLocationFlag == 2)
+                exitRoom();
         }
         // 메세지 박스 상호작용 부분 추가
     }

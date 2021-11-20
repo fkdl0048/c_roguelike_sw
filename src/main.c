@@ -11,7 +11,9 @@ int MAP_WIDTH = 90;
 int firstFloorX = 4;
 int firstFloorY = 3;
 int secondFloorX = 4;
-int secondFloorY = 3; 
+int secondFloorY = 3;
+int roomX = 40;
+int roomY = 12; 
 //Position firstFloorPos1,2};//수정
 
 // map size
@@ -22,6 +24,8 @@ int stairSize = 3;
 int secondFloorWidth = 88;
 int secondFloorHeight = 15;
 int secondFloorCenterSize = 3;
+int roomWidth = 20;
+int roomHeight = 10;
 
 // Frame pos
 int curPosFrameX = 94;

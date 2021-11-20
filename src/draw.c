@@ -27,10 +27,10 @@ void drawRect(int x,int y,int width, int height)
                 if(i == 1 && j == 1)
                     mvaddch(y+i,x+j,ACS_ULCORNER);
                 else if(i == height && j == 1)
-                    mvaddch(y+i,x+j,ACS_URCORNER);
-                else if(j == 1 && i == height)
                     mvaddch(y+i,x+j,ACS_LLCORNER);
-                else if(j == height && j == height) 
+                else if(i == 1 && j == width)
+                    mvaddch(y+i,x+j,ACS_URCORNER);
+                else if(i == height && j == width) 
                     mvaddch(y+i,x+j,ACS_LRCORNER);
             }
             else if(i == 1 || i == height)

@@ -5,6 +5,8 @@ extern int firstFloorX;
 extern int firstFloorY;
 extern int secondFloorX;
 extern int secondFloorY; 
+extern int roomX;
+extern int roomY;
 //Position firstFloorPos1,2};//수정
 
 // map size
@@ -15,6 +17,8 @@ extern int stairSize;
 extern int secondFloorWidth;
 extern int secondFloorHeight;
 extern int secondFloorCenterSize;
+extern int roomWidth;
+extern int roomHeight;
 
 // Frame pos
 extern int curPosFrameX;

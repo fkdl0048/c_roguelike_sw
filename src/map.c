@@ -1,5 +1,12 @@
 #include <rogue.h>
 
+int abs(int n)
+{
+    if (n < 0)
+        return (n * -1);
+    return n;
+}
+
 Tile** createMapTiles()
 {
     Tile** tiles = calloc(MAP_HEIGHT, sizeof(Tile*)); //동적할당 상수값
@@ -52,9 +59,6 @@ void setFirstFloor(void)
         map[y][x].ch = '[';
         map[y][x].walkable = FALSE;
     }
-    //아이템 test
-    map[10][10].ch = '+';
-    map[10][10].walkable = FALSE;
 }
 
 void setSecondFloor(void)
@@ -95,16 +99,70 @@ void setSecondFloor(void)
         map[y][x].ch = '[';
             map[y][x].walkable = FALSE;
     }
-}
-
-void setRoomFloor(void)
-{
+    //Room Entrance
     for (int y = secondFloorY; y < secondFloorHeight; y++)
     {
         for (int x = secondFloorX; x < secondFloorWidth; x++)
         {
-            map[y][x].ch = ' ';
-            map[y][x].walkable = TRUE;
+            if (abs(x - secondFloorWidth / 2) % 15 == 0 && y == secondFloorY && x != secondFloorWidth / 2)
+            {
+                map[y][x - 1].ch = '<';
+                map[y][x + 1].ch = '>';
+                map[y - 1][x].ch = '+';
+                
+                map[y][x - 1].walkable = FALSE;
+                map[y][x + 1].walkable = FALSE;
+            }
+            else if (abs(x - secondFloorWidth / 2) % 15 == 0 && y == secondFloorHeight - 1 && x != secondFloorWidth / 2)
+            {
+                map[y][x - 1].ch = '<';
+                map[y][x + 1].ch = '>';
+                map[y + 1][x].ch = '+';
+                map[y][x - 1].walkable = FALSE;
+                map[y][x + 1].walkable = FALSE;
+            }
+            else if (abs(y - secondFloorHeight / 2) % 4 == 0 && x == secondFloorX && y != secondFloorY)
+            {
+                map[y - 1][x].ch = '^';
+                map[y + 1][x].ch = 'v';
+                map[y][x - 1].ch = '+';
+                map[y - 1][x].walkable = FALSE;
+                map[y + 1][x].walkable = FALSE;
+            }
+            else if (abs(y - secondFloorHeight / 2) % 4 == 0 && x == secondFloorWidth - 1 && y != secondFloorY)
+            {
+                map[y - 1][x].ch = '^';
+                map[y + 1][x].ch = 'v';
+                map[y][x + 1].ch = '+';
+                map[y - 1][x].walkable = FALSE;
+                map[y + 1][x].walkable = FALSE;
+            }
+        }
+    }
+}
+
+void setRoomFloor(void)
+{
+    for (int y = roomY; y < roomY + roomHeight; y++)
+    {
+        for (int x = roomX; x < roomX + roomWidth; x++)
+        {
+            if (x == roomX + roomWidth / 2 - 1 && y == roomY + roomHeight - 1)
+            {
+                map[y][x].ch = '<';
+                map[y][x].walkable = FALSE;
+            }
+            else if (x == roomX + roomWidth / 2 + 1 && y == roomY + roomHeight - 1)
+            {
+                map[y][x].ch = '>';
+                map[y][x].walkable = FALSE;
+                map[y + 1][x - 1].ch = '+';
+            }
+            else
+            {
+                map[y][x].ch = ' ';
+                map[y][x].walkable = TRUE;
+            }
         }
     }
 }
@@ -125,7 +183,9 @@ Position setupMap(void)
         start_pos.y = 5;
     }
     else if(curLocationFlag == 2){
-
+        setRoomFloor();
+        start_pos.x = 50;
+        start_pos.y = 20;
     }
 
     return start_pos;
