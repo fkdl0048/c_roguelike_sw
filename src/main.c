@@ -51,6 +51,8 @@ int curLocationFlag = 0;
 time_t start_time;
 time_t cur_time;
 
+Position roomPos[10];
+
 int main(void)
 {
   //setlocale(LC_ALL, "ko_KR.utf8");
