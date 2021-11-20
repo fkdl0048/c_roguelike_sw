@@ -33,6 +33,14 @@ typedef struct
   int driver;
 }Inventory;
 
+typedef struct
+{
+  int lock_room;
+  int key;
+  int quiz;
+  int driver;
+}Randam_Level;
+
 //객체
 typedef struct 
 {
@@ -74,8 +82,6 @@ void callInteraction(void);
 
 
 // externs
-// extern const int MAP_HEIGHT;
-// extern const int MAP_WIDTH;
 extern Entity* player; //전역변수 공유 -> 다른 소스파일에 정의가 되어 있으니 찾아가서 사용할 것 이라는 뜻
 extern Tile** map;
 extern Inventory* inven; //인벤토리 객체
