@@ -4,7 +4,7 @@
 #define TRUE 1
 #define FALSE 0
 
-#include <ncurses.h> // window.h랑 비슷한 헤더파일
+#include <curses.h> // window.h랑 비슷한 헤더파일
 #include <stdlib.h> // 동적할당을 위해
 #include <time.h> //데이터 파일
 #include <data.h>

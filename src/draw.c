@@ -18,28 +18,45 @@ void drawEntity(Entity* entity)
     mvaddch(entity->pos.y, entity->pos.x, entity->ch);// y,x,표시할 문자 세가지를 인수로 받아 표시 *y먼저x가 뒤에온다*
 }
 
+// void drawRect(int x,int y,int width, int height)
+// {
+//     int i,j;
+//     for(i = 1; i <= height;i++){
+//         for (j = 1; j <= width; j++){
+//             if((i == 1 || i == height) && (j == 1 || j == width)){
+//                 if(i == 1 && j == 1)
+//                     mvaddch(y+i,x+j,ACS_ULCORNER);
+//                 else if(i == height && j == 1)
+//                     mvaddch(y+i,x+j,ACS_LLCORNER);
+//                 else if(i == 1 && j == width)
+//                     mvaddch(y+i,x+j,ACS_URCORNER);
+//                 else if(i == height && j == width) 
+//                     mvaddch(y+i,x+j,ACS_LRCORNER);
+//             }
+//             else if(i == 1 || i == height)
+//                 mvaddch(y+i,x+j,ACS_HLINE);
+//             else if(j == 1 || j == width)
+//                 mvaddch(y+i,x+j,ACS_VLINE);
+//         }
+//     }
+// }
+
 void drawRect(int x,int y,int width, int height)
 {
     int i,j;
     for(i = 1; i <= height;i++){
         for (j = 1; j <= width; j++){
             if((i == 1 || i == height) && (j == 1 || j == width)){
-                if(i == 1 && j == 1)
-                    mvaddch(y+i,x+j,ACS_ULCORNER);
-                else if(i == height && j == 1)
-                    mvaddch(y+i,x+j,ACS_LLCORNER);
-                else if(i == 1 && j == width)
-                    mvaddch(y+i,x+j,ACS_URCORNER);
-                else if(i == height && j == width) 
-                    mvaddch(y+i,x+j,ACS_LRCORNER);
+                mvaddch(y+i,x+j,'*');
             }
             else if(i == 1 || i == height)
-                mvaddch(y+i,x+j,ACS_HLINE);
+                mvaddch(y+i,x+j,'-');
             else if(j == 1 || j == width)
-                mvaddch(y+i,x+j,ACS_VLINE);
+                mvaddch(y+i,x+j,'|');
         }
     }
 }
+
 
 void drawFrame(void)
 {
