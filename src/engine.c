@@ -1,12 +1,13 @@
 #include <rogue.h>
 
-void cursesSetup(void)
+void setup(void)
 {
     initscr(); //ncurses 시스템을 시작하고 터미널에서 다른 모든 함수를 호출가능하게 함
     noecho(); //아무 키나 누를 때 ncurses가 화면에 즉시 그려지는 것을 방지
     curs_set(0); //커서 깜박이 제거
     nodelay(stdscr, TRUE);
-    scrollok(stdscr, TRUE); 
+    scrollok(stdscr, TRUE);
+    srand((unsigned)time(NULL));
     // seed 값 ㄹ초기회 추기
 }
 

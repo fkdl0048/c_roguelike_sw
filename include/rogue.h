@@ -55,7 +55,7 @@ void drawEntity(Entity* entity);
 void drawEverything(void);
 
 // engine.c functions
-void cursesSetup(void);
+void setup(void);
 void gameLoop(void);
 void closeGame(void);
 int kbhit(void);
@@ -74,6 +74,7 @@ void movePlayer(Position newPos);
 Inventory* createInventory(void);
 
 // time.c functions
+void printTime(void);
 
 // message.c functions
 void printMassage(char *str);
@@ -82,15 +83,13 @@ void callMassageBox(char check);
 // ineraction.c functions
 void callInteraction(void);
 
+// util.c functions
+char *ft_itoa(int n);
 
-// externs
 extern Entity* player; //전역변수 공유 -> 다른 소스파일에 정의가 되어 있으니 찾아가서 사용할 것 이라는 뜻
 extern Tile** map;
 extern Inventory* inven; //인벤토리 객체
 extern int curLocationFlag;
-extern time_t start_time;
-extern time_t cur_time;
 extern Position roomPos[10];
-//extern int time;
 
 #endif

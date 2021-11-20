@@ -39,3 +39,11 @@ extern int invenFrameWidth;
 extern int invenFrameHeight;
 extern int massageBoxWidth;
 extern int massageBoxHeight;
+
+// time
+extern time_t start_time;
+extern time_t cur_time;
+extern int level_time;
+
+// etc
+
