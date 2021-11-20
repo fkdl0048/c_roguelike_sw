@@ -7,3 +7,4 @@ Inventory *createInventory(void){
     tmp->driver = 0;
     return tmp;
 }
+
