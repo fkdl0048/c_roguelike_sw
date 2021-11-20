@@ -48,14 +48,20 @@ int massageBoxHeight = 3;
 
 // util variable
 int curLocationFlag = 0;
-
+time_t start_time;
+time_t cur_time;
 
 int main(void)
 {
   //setlocale(LC_ALL, "ko_KR.utf8");
   //setlocale(LC_CTYPE, "ko_KR.utf8"); utg8 test 삭제 금지
 
+  srand((unsigned)time(NULL));
+
   Position start_pos;
+
+  start_time = time(NULL);
+  cur_time = time(NULL);
 
   cursesSetup();
 
@@ -70,3 +76,19 @@ int main(void)
 
   return 0;
 }
+
+
+
+int kbhit(void)
+{
+    int ch = getch();
+
+    if (ch != ERR) {
+        ungetch(ch);
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+
