@@ -138,20 +138,13 @@ void setRoomFloor(void)
     {
         for (int x = roomX; x < roomX + roomWidth; x++)
         {
-            if (x == roomX + roomWidth / 2 - 1 && y == roomY + roomHeight - 1)
-                map[y + 1][x].ch = '+';
-            else if (x == roomX + roomWidth / 2 + 1 && y == roomY + roomHeight - 1)
-            {
-                map[y + 1][x].ch = '+';
-                map[y + 1][x - 1].ch = '-';
-            }
-            else
-            {
-                map[y][x].ch = ' ';
-                map[y][x].walkable = TRUE;
-            }
+            map[y][x].ch = ' ';
+            map[y][x].walkable = TRUE;
         }
     }
+    map[roomY + roomHeight][roomX + roomWidth / 2 - 1].ch = '+';
+    map[roomY + roomHeight][roomX + roomWidth / 2 + 1].ch = '+';
+    map[roomY + roomHeight][roomX + roomWidth / 2].ch = '-';
 }
 
 Position setupMap(void)
