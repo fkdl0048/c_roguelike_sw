@@ -186,8 +186,8 @@ Position setupMap(void)
     }
     else if(curLocationFlag >= 2){
         setRoomFloor();
-        start_pos.x = 50;
-        start_pos.y = 21;
+        start_pos.x = roomX + roomWidth / 2;
+        start_pos.y = roomY + roomHeight - 1;
     }
 
     return start_pos;
