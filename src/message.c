@@ -2,7 +2,6 @@
 
 void printMassage(char *str){
     mvaddstr(27,3,str);
-    //attron(A_BLINK);
     mvaddch(27,88,'<' | A_BLINK);
     while (1)
     {
@@ -13,7 +12,6 @@ void printMassage(char *str){
             }
         }
     }
-    //attron(A_NORMAL);
 }
 
 void callMassageBox(char check){
