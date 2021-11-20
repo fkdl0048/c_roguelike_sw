@@ -90,6 +90,7 @@ extern Inventory* inven; //인벤토리 객체
 extern int curLocationFlag;
 extern time_t start_time;
 extern time_t cur_time;
+extern Position roomPos[10];
 //extern int time;
 
 #endif
