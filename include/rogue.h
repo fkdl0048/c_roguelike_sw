@@ -10,6 +10,7 @@
 #include <data.h>
 #include <string.h>
 #include <locale.h>
+#include <unistd.h>
 
 //좌표
 typedef struct //구조체 선언
@@ -57,6 +58,7 @@ void drawEverything(void);
 void cursesSetup(void);
 void gameLoop(void);
 void closeGame(void);
+int kbhit(void);
 
 // map.c functions
 Tile** createMapTiles(void);
@@ -86,6 +88,8 @@ extern Entity* player; //전역변수 공유 -> 다른 소스파일에 정의가
 extern Tile** map;
 extern Inventory* inven; //인벤토리 객체
 extern int curLocationFlag;
+extern time_t start_time;
+extern time_t cur_time;
 //extern int time;
 
 #endif
