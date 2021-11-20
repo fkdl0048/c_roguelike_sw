@@ -34,7 +34,7 @@ void callInteraction(void){
             else if(curLocationFlag == 1)
                 downFloor();
         }
-        else if (interch == '+'){
+        else if (interch == '-' || interch == '|'){
             if (curLocationFlag == 1)
                 enterRoom();
             else if(curLocationFlag == 2)

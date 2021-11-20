@@ -106,36 +106,27 @@ void setSecondFloor(void)
         {
             if (abs(x - secondFloorWidth / 2) % 15 == 0 && y == secondFloorY && x != secondFloorWidth / 2)
             {
-                map[y][x - 1].ch = '<';
-                map[y][x + 1].ch = '>';
-                map[y - 1][x].ch = '+';
-                
-                map[y][x - 1].walkable = FALSE;
-                map[y][x + 1].walkable = FALSE;
+                map[y - 1][x - 1].ch = '+';
+                map[y - 1][x + 1].ch = '+';
+                map[y - 1][x].ch = '-';
             }
             else if (abs(x - secondFloorWidth / 2) % 15 == 0 && y == secondFloorHeight - 1 && x != secondFloorWidth / 2)
             {
-                map[y][x - 1].ch = '<';
-                map[y][x + 1].ch = '>';
-                map[y + 1][x].ch = '+';
-                map[y][x - 1].walkable = FALSE;
-                map[y][x + 1].walkable = FALSE;
+                map[y + 1][x - 1].ch = '+';
+                map[y + 1][x + 1].ch = '+';
+                map[y + 1][x].ch = '-';
             }
             else if (abs(y - secondFloorHeight / 2) % 4 == 0 && x == secondFloorX && y != secondFloorY)
             {
-                map[y - 1][x].ch = '^';
-                map[y + 1][x].ch = 'v';
-                map[y][x - 1].ch = '+';
-                map[y - 1][x].walkable = FALSE;
-                map[y + 1][x].walkable = FALSE;
+                map[y - 1][x - 1].ch = '+';
+                map[y + 1][x - 1].ch = '+';
+                map[y][x - 1].ch = '|';
             }
             else if (abs(y - secondFloorHeight / 2) % 4 == 0 && x == secondFloorWidth - 1 && y != secondFloorY)
             {
-                map[y - 1][x].ch = '^';
-                map[y + 1][x].ch = 'v';
-                map[y][x + 1].ch = '+';
-                map[y - 1][x].walkable = FALSE;
-                map[y + 1][x].walkable = FALSE;
+                map[y - 1][x + 1].ch = '+';
+                map[y + 1][x + 1].ch = '+';
+                map[y][x + 1].ch = '|';
             }
         }
     }
@@ -148,15 +139,11 @@ void setRoomFloor(void)
         for (int x = roomX; x < roomX + roomWidth; x++)
         {
             if (x == roomX + roomWidth / 2 - 1 && y == roomY + roomHeight - 1)
-            {
-                map[y][x].ch = '<';
-                map[y][x].walkable = FALSE;
-            }
+                map[y + 1][x].ch = '+';
             else if (x == roomX + roomWidth / 2 + 1 && y == roomY + roomHeight - 1)
             {
-                map[y][x].ch = '>';
-                map[y][x].walkable = FALSE;
-                map[y + 1][x - 1].ch = '+';
+                map[y + 1][x].ch = '+';
+                map[y + 1][x - 1].ch = '-';
             }
             else
             {
