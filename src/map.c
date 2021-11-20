@@ -1,12 +1,5 @@
 #include <rogue.h>
 
-int abs(int n)
-{
-    if (n < 0)
-        return (n * -1);
-    return n;
-}
-
 Tile** createMapTiles()
 {
     Tile** tiles = calloc(MAP_HEIGHT, sizeof(Tile*)); //동적할당 상수값
@@ -60,6 +53,8 @@ void setFirstFloor(void)
         map[y][x].walkable = FALSE;
     }
     map[8][8].ch = '/';
+    map[12][12].ch = '8';
+    map[12][20].ch = 'K';
 }
 
 void setSecondFloor(void)
@@ -105,25 +100,25 @@ void setSecondFloor(void)
     {
         for (int x = secondFloorX; x < secondFloorWidth; x++)
         {
-            if (abs(x - secondFloorWidth / 2) % 15 == 0 && y == secondFloorY && x != secondFloorWidth / 2)
+            if (ft_abs(x - secondFloorWidth / 2) % 15 == 0 && y == secondFloorY && x != secondFloorWidth / 2)
             {
                 map[y - 1][x - 1].ch = '+';
                 map[y - 1][x + 1].ch = '+';
                 map[y - 1][x].ch = '-';
             }
-            else if (abs(x - secondFloorWidth / 2) % 15 == 0 && y == secondFloorHeight - 1 && x != secondFloorWidth / 2)
+            else if (ft_abs(x - secondFloorWidth / 2) % 15 == 0 && y == secondFloorHeight - 1 && x != secondFloorWidth / 2)
             {
                 map[y + 1][x - 1].ch = '+';
                 map[y + 1][x + 1].ch = '+';
                 map[y + 1][x].ch = '-';
             }
-            else if (abs(y - secondFloorHeight / 2) % 4 == 0 && x == secondFloorX && y != secondFloorY)
+            else if (ft_abs(y - secondFloorHeight / 2) % 4 == 0 && x == secondFloorX && y != secondFloorY)
             {
                 map[y - 1][x - 1].ch = '+';
                 map[y + 1][x - 1].ch = '+';
                 map[y][x - 1].ch = '|';
             }
-            else if (abs(y - secondFloorHeight / 2) % 4 == 0 && x == secondFloorWidth - 1 && y != secondFloorY)
+            else if (ft_abs(y - secondFloorHeight / 2) % 4 == 0 && x == secondFloorWidth - 1 && y != secondFloorY)
             {
                 map[y - 1][x + 1].ch = '+';
                 map[y + 1][x + 1].ch = '+';

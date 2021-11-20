@@ -70,8 +70,9 @@ Entity* createPlayer(Position start_pos);
 void handleInput(int input);
 void movePlayer(Position newPos);
 
-// inven.c functions
+// inventory.c functions
 Inventory* createInventory(void);
+void printInventory(void);
 
 // time.c functions
 void printTime(void);
@@ -85,6 +86,7 @@ void callInteraction(void);
 
 // util.c functions
 char *ft_itoa(int n);
+long int ft_abs(long int nbr);
 
 extern Entity* player; //전역변수 공유 -> 다른 소스파일에 정의가 되어 있으니 찾아가서 사용할 것 이라는 뜻
 extern Tile** map;

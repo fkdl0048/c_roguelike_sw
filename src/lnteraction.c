@@ -41,6 +41,8 @@ void callInteraction(void){
             else if(curLocationFlag == 2)
                 exitRoom();
         }
+        else if(interch == 'K')
+            inven->key++;
         // 메세지 박스 상호작용 부분 추가
     }
 }

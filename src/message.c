@@ -6,6 +6,7 @@ void printMassage(char *str){
     mvaddch(27,88,'<' | A_BLINK);
     while (1)
     {
+        printTime();
         if(kbhit()){
             if(getch() == '\n'){
                 break;
@@ -21,9 +22,10 @@ void callMassageBox(char check){
     case '/':
         printMassage("get?");
         break;
+    case '8':
+        printMassage("YoungJoo ba bo ba bo");
     default:
         break;
-        
     }
 
 }

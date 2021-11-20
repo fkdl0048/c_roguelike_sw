@@ -57,22 +57,30 @@ void drawTimer(void){
     printTime();
 }
 
-// void drawMassagebox(void){
-//     printMassage("test!!!!!!");
-// }
+void drawInventory(void){
+    char rustykey_str[20] = "Rusty key : ";
+    char driver_str[20] = "Driver : ";
+    char cardkey_str[20] = "Card key : ";   
+    mvaddstr(invenFrameY+2,invenFrameX+3,strcat(rustykey_str,ft_itoa(inven->key)));
+    mvaddstr(invenFrameY+4,invenFrameX+3,strcat(driver_str,ft_itoa(inven->driver)));
+    mvaddstr(invenFrameY+6,invenFrameX+3,strcat(cardkey_str,ft_itoa(inven->cardkey)));
+}
 
 void drawEverything(void)
 {
     clear();
     drawFrame(); 
     drawMap();
-    //drawMassagebox();
     drawCurLocation();
     drawTimer();
+    drawInventory();
     drawEntity(player);
 }
 
 
+
+
+// 프레임 부분 나중에 추가..! 이슈 추가 할것
 
 
 // void drawRect(int x,int y,int width, int height)
