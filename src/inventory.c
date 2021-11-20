@@ -8,3 +8,6 @@ Inventory *createInventory(void){
     return tmp;
 }
 
+void callItem(char ch){
+    
+}
