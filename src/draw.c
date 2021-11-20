@@ -77,6 +77,7 @@ void drawEverything(void)
     drawTimer();
     drawInventory();
     drawEntity(player);
+    if(curLocationFlag == 1)  drawEntity(npc);
 }
 
 
