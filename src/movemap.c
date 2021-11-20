@@ -11,13 +11,20 @@ void downFloor(void){
 }
 
 void enterRoom(void){
-    curLocationFlag++;
+    for(int i = 0;i < 10; i++){
+        if (player->pos.x == roomPos[i].x && player->pos.y == roomPos[i].y)
+        {
+            curLocationFlag = i + 2;
+            break;
+        }
+    }
     player->pos = setupMap();
 }
 
 void exitRoom(void){
-    curLocationFlag--;
-    player->pos = setupMap();
+    player->pos = roomPos[curLocationFlag - 2];
+    curLocationFlag = 1;
+    setupMap();
 }
 
 void callMoveMap(char check){
@@ -30,7 +37,7 @@ void callMoveMap(char check){
     else if (check == '-' || check == '|'){
         if (curLocationFlag == 1)
             enterRoom();
-        else if(curLocationFlag == 2)
+        else if(curLocationFlag >= 2)
             exitRoom();
     }
 }

@@ -41,6 +41,14 @@ void setFirstFloor(void)
             map[y][x].walkable = TRUE;
         }
     }
+    //Door
+    for(int y = firstFloorHeight + firstFloorRoomSize, x = (firstFloorWidth + firstFloorX)/2 - 2;  x <= (firstFloorWidth + firstFloorX)/2 + 2; x++)
+    {
+        if (x == (firstFloorWidth + firstFloorX)/2 - 2 || x == (firstFloorWidth + firstFloorX)/2 + 2)
+            map[y][x].ch = '+';
+        else
+            map[y][x].ch = '-';
+    }
     //계단
     for (int x = firstFloorX, y = firstFloorY; x < firstFloorX + stairSize; x++)
     {
@@ -96,6 +104,7 @@ void setSecondFloor(void)
             map[y][x].walkable = FALSE;
     }
     //Room Entrance
+    int index = 0;
     for (int y = secondFloorY; y < secondFloorHeight; y++)
     {
         for (int x = secondFloorX; x < secondFloorWidth; x++)
@@ -105,24 +114,36 @@ void setSecondFloor(void)
                 map[y - 1][x - 1].ch = '+';
                 map[y - 1][x + 1].ch = '+';
                 map[y - 1][x].ch = '-';
+                roomPos[index].x = x;
+                roomPos[index].y = y;
+                index++;
             }
             else if (ft_abs(x - secondFloorWidth / 2) % 15 == 0 && y == secondFloorHeight - 1 && x != secondFloorWidth / 2)
             {
                 map[y + 1][x - 1].ch = '+';
                 map[y + 1][x + 1].ch = '+';
                 map[y + 1][x].ch = '-';
+                roomPos[index].x = x;
+                roomPos[index].y = y;
+                index++;
             }
-            else if (ft_abs(y - secondFloorHeight / 2) % 4 == 0 && x == secondFloorX && y != secondFloorY)
+            else if (y - (secondFloorY + secondFloorHeight) / 2 == 0 && x == secondFloorX)
             {
                 map[y - 1][x - 1].ch = '+';
                 map[y + 1][x - 1].ch = '+';
                 map[y][x - 1].ch = '|';
+                roomPos[index].x = x;
+                roomPos[index].y = y;
+                index++;
             }
-            else if (ft_abs(y - secondFloorHeight / 2) % 4 == 0 && x == secondFloorWidth - 1 && y != secondFloorY)
+            else if (y - (secondFloorY + secondFloorHeight) / 2 == 0 && x == secondFloorWidth - 1)
             {
                 map[y - 1][x + 1].ch = '+';
                 map[y + 1][x + 1].ch = '+';
                 map[y][x + 1].ch = '|';
+                roomPos[index].x = x;
+                roomPos[index].y = y;
+                index++;
             }
         }
     }
@@ -158,10 +179,10 @@ Position setupMap(void)
         start_pos.x = 5;
         start_pos.y = 5;
     }
-    else if(curLocationFlag == 2){
+    else if(curLocationFlag >= 2){
         setRoomFloor();
         start_pos.x = 50;
-        start_pos.y = 20;
+        start_pos.y = 21;
     }
 
     return start_pos;
