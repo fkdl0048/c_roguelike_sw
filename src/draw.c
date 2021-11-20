@@ -57,16 +57,16 @@ void drawTimer(void){
     printTime();
 }
 
-void drawMassagebox(void){
-    printMassage("test!!!!!!");
-}
+// void drawMassagebox(void){
+//     printMassage("test!!!!!!");
+// }
 
 void drawEverything(void)
 {
     clear();
     drawFrame(); 
     drawMap();
-    drawMassagebox();
+    //drawMassagebox();
     drawCurLocation();
     drawTimer();
     drawEntity(player);
