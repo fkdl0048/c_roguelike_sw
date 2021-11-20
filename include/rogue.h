@@ -101,5 +101,6 @@ extern Inventory* inven; //인벤토리 객체
 extern int curLocationFlag;
 extern Position roomPos[10];
 extern Randam_Level *randam_Level;
+extern Entity* npc; //npc 생성 추가
 
 #endif
