@@ -46,4 +46,9 @@ extern time_t cur_time;
 extern int level_time;
 
 // etc
+extern int max_lock_room;
+extern int max_key;
+extern int max_quiz;
+extern int max_box;
+extern int max_driver;
 

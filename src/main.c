@@ -7,8 +7,8 @@ int firstFloorX = 4;
 int firstFloorY = 3;
 int secondFloorX = 4;
 int secondFloorY = 3;
-int roomX = 40;
-int roomY = 12; 
+int roomX = 35;
+int roomY = 9; 
 //Position firstFloorPos1,2};//수정
 
 // map size
@@ -19,8 +19,8 @@ int stairSize = 3;
 int secondFloorWidth = 88;
 int secondFloorHeight = 15;
 int secondFloorCenterSize = 3;
-int roomWidth = 20;
-int roomHeight = 10;
+int roomWidth = 22;
+int roomHeight = 13;
 
 // Frame pos
 int curPosFrameX = 94;
@@ -42,6 +42,7 @@ int invenFrameHeight = 13;
 int massageBoxWidth = 90;
 int massageBoxHeight = 3;
 
+
 // 중요 변수들
 Entity* player; //전역 포인터 변수 선언(및 정의 헤더파일에 존재하는 extern정의) -> player.c에서 동적할당하여 사용
 Tile** map;
@@ -50,6 +51,13 @@ int curLocationFlag = 0;
 time_t start_time;
 time_t cur_time;
 int level_time = 600; // 10분
+
+Randam_Level *randam_Level;
+int max_lock_room = 4;
+int max_key = 5;
+int max_quiz = 2;
+int max_box = 1;
+int max_driver = 1;
 
 Position roomPos[10];
 
@@ -61,6 +69,7 @@ int main(void)
 
   setup();
 
+  randam_Level = creatRandom();
   map = createMapTiles(); 
   start_pos = setupMap();
   player = createPlayer(start_pos);

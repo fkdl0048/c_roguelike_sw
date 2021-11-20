@@ -42,16 +42,18 @@ void drawFrame(void)
 }
 
 void drawCurLocation(void){
+    char room_str[10] = "Room 20";
     if(curLocationFlag == 0){
         mvaddstr(curPosFrameY+2, curPosFrameX+3, "First Floor");
     }
     else if(curLocationFlag == 1){
         mvaddstr(curPosFrameY+2, curPosFrameX+3, "Second Floor");
     }
-    else if(curLocationFlag == 2){
-        mvaddstr(curPosFrameY+2, curPosFrameX+3, "Room");
+    else if(curLocationFlag >= 2){
+        mvaddstr(curPosFrameY+2, curPosFrameX+3, strcat(room_str,ft_itoa(curLocationFlag - 2)));    
     }
 }
+
 
 void drawTimer(void){
     printTime();
@@ -76,6 +78,7 @@ void drawEverything(void)
     drawInventory();
     drawEntity(player);
 }
+
 
 
 

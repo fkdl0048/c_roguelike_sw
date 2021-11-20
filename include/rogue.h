@@ -40,6 +40,7 @@ typedef struct
   int key;
   int quiz;
   int driver;
+  int box;
 }Randam_Level;
 
 //객체
@@ -87,6 +88,9 @@ void callMassageBox(char check);
 // ineraction.c functions
 void callInteraction(void);
 
+// random.c functions
+Randam_Level *creatRandom(void);
+
 // util.c functions
 char *ft_itoa(int n);
 long int ft_abs(long int nbr);
@@ -96,5 +100,6 @@ extern Tile** map;
 extern Inventory* inven; //인벤토리 객체
 extern int curLocationFlag;
 extern Position roomPos[10];
+extern Randam_Level *randam_Level;
 
 #endif
