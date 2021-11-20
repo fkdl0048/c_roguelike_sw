@@ -59,6 +59,7 @@ void setFirstFloor(void)
         map[y][x].ch = '[';
         map[y][x].walkable = FALSE;
     }
+    map[8][8].ch = '/';
 }
 
 void setSecondFloor(void)

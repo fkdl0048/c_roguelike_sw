@@ -28,6 +28,7 @@ void callInteraction(void){
 
     for (int i = 0; i < 4; i++){
         interch = map[pos.y+degPos[i].y][pos.x+degPos[i].x].ch;
+        callMassageBox(interch);
         if((interch == ']') || (interch == '[')){
             if(curLocationFlag == 0)
                 upFloor();
