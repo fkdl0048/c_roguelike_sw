@@ -9,5 +9,5 @@ Inventory *createInventory(void){
 }
 
 void callItem(char check){
-    
+
 }

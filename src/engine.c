@@ -20,10 +20,10 @@ void gameLoop(void)
     while(1) //사용자로 부터 키 입력받으며 무한루프
     {
         if(kbhit()){
-            ch = getch();
-            if (ch == 'q') // 종료키 설정
-                break;
-            handleInput(ch);
+        ch = getch();
+        if (ch == 'q') // 종료키 설정
+            break;
+        handleInput(ch);
         }
         drawEverything();
     }

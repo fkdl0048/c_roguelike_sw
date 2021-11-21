@@ -10,7 +10,11 @@
 #include <data.h>
 #include <string.h>
 #include <locale.h>
+#include <stdio.h>
+#include <time.h>
+#include <windows.h>
 #include <unistd.h>
+
 
 //좌표
 typedef struct //구조체 선언
@@ -50,6 +54,14 @@ typedef struct
   char ch;
 } Entity; 
 
+//퀴즈
+typedef struct
+{
+  int n1;
+  int n2;
+  int result;
+}Quiz;
+
 //draw.c functions
 void drawMap(void);
 void drawEntity(Entity* entity);
@@ -83,7 +95,9 @@ void printTime(void);
 
 // message.c functions
 void printMassage(char *str);
-void callMassageBox(char check);
+void callMassageBox(char str);
+void inputMessage(void);
+void quizMessage(char *str);
 
 // ineraction.c functions
 void callInteraction(void);
@@ -91,15 +105,24 @@ void callInteraction(void);
 // random.c functions
 Randam_Level *creatRandom(void);
 
+//quiz.c
+Quiz* createQuiz(void);
+int CheckNPC(void);
+void CallQuiz(void);
+void CheckAnswer(void);
+
 // util.c functions
 char *ft_itoa(int n);
 long int ft_abs(long int nbr);
 
+// externs
 extern Entity* player; //전역변수 공유 -> 다른 소스파일에 정의가 되어 있으니 찾아가서 사용할 것 이라는 뜻
 extern Tile** map;
 extern Inventory* inven; //인벤토리 객체
+extern Quiz* quiz;
 extern int curLocationFlag;
 extern Position roomPos[10];
+extern char answer[3];
 extern Randam_Level *randam_Level;
 
 #endif

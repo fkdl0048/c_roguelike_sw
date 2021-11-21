@@ -35,8 +35,11 @@ void callMoveMap(char check){
             downFloor();
     }
     else if (check == '-' || check == '|'){
-        if (curLocationFlag == 1)
+        if (curLocationFlag == 1) {
             enterRoom();
+            if(CheckNPC() == TRUE)
+                CallQuiz();
+        }
         else if(curLocationFlag >= 2)
             exitRoom();
     }

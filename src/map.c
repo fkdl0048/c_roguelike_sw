@@ -164,6 +164,10 @@ void setRoomFloor(void)
             map[y][x].walkable = TRUE;
         }
     }
+    if(randam_Level[curLocationFlag-2].quiz == 1){
+        map[roomY + 1][roomX + roomWidth / 2].ch = '$';
+        map[roomY + 1][roomX + roomWidth / 2].walkable = FALSE;
+    }
     map[roomY + roomHeight][roomX + roomWidth / 2 - 1].ch = '+';
     map[roomY + roomHeight][roomX + roomWidth / 2 + 1].ch = '+';
     map[roomY + roomHeight][roomX + roomWidth / 2].ch = '-';

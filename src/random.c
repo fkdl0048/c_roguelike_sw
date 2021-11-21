@@ -11,7 +11,7 @@ Randam_Level *creatRandom(void){
     int box_num = max_box;
 
     Randam_Level *random = (Randam_Level *)malloc(sizeof(Randam_Level) * 10);
-    
+
     for (i = 0; i < 10; i++)
     {
         random[i].box = 0;
@@ -54,6 +54,6 @@ Randam_Level *creatRandom(void){
             quiz_num--;
         }
     }
-    
+
     return random;
 }

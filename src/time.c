@@ -10,7 +10,7 @@ void printTime(void){
     strcat(timer,ft_itoa(min));
     strcat(timer," : ");
     strcat(timer,ft_itoa(sec));
-
+    
     mvaddstr(timerFrameY+2,timerFrameX+3,timer);
 } 
 
