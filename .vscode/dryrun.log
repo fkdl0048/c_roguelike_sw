@@ -1,0 +1,7 @@
+make.exe --dry-run --always-make --keep-going --print-directory
+make.exe: Entering directory `c:/Users/zd967/test/1'
+gcc ./src/*.c -lpdcurses -I./include/ -o rogue
+./rogue.exe
+del rogue.exe
+make.exe: Leaving directory `c:/Users/zd967/test/1'
+ 
