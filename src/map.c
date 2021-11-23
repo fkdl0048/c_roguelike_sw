@@ -181,10 +181,9 @@ void setRoomFloor(void)
     map[15][46].walkable = FALSE;
     //랜덤성 부여 수정 필요
 
-    // if(randam_Level[curLocationFlag - 2].quiz == 1){
-    //     callQuiz();
-    //     randam_Level[curLocationFlag - 2].quiz = 
-    // }
+    if(randam_Level[curLocationFlag - 2].quiz == 1){
+        callQuiz();
+    }
 
 }
 

@@ -29,16 +29,16 @@ void checkAnswer(void){
     free(quiz);
 }
 
-char* makeQuiz(void){
-    char *s;
+// char* makeQuiz(void){
+//     char s[10];
     
-    strcpy(s,ft_itoa(quiz->n1));
-    strcat(s,"+");
-    strcat(s,ft_itoa(quiz->n2));
-    strcat(s,"=");
+//     strcpy(s,ft_itoa(quiz->n1));
+//     strcat(s,"+");
+//     strcat(s,ft_itoa(quiz->n2));
+//     strcat(s,"=");
 
-    return s;
-}
+//     return s;
+// }
 
 void callQuiz(void){
     quiz = createQuiz();
@@ -46,7 +46,13 @@ void callQuiz(void){
     printMassage("Quiz!!");
     //printf("1");
     drawEverything();
-    quizMessage(makeQuiz());
+    char s[10];
+    
+    strcpy(s,ft_itoa(quiz->n1));
+    strcat(s,"+");
+    strcat(s,ft_itoa(quiz->n2));
+    strcat(s,"=");
+    quizMessage(s);
     drawEverything();
     checkAnswer();
 }
