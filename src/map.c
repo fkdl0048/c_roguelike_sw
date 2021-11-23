@@ -61,8 +61,6 @@ void setFirstFloor(void)
         map[y][x].walkable = FALSE;
     }
     map[8][8].ch = '/';
-    map[12][12].ch = '8';
-    map[12][20].ch = 'K';
 }
 
 void setSecondFloor(void)
@@ -185,6 +183,7 @@ void setRoomFloor(void)
 
     // if(randam_Level[curLocationFlag - 2].quiz == 1){
     //     callQuiz();
+    //     randam_Level[curLocationFlag - 2].quiz = 
     // }
 
 }

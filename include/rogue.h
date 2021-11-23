@@ -51,6 +51,14 @@ typedef struct
   char ch;
 } Entity; 
 
+//퀴즈
+typedef struct
+{
+  int n1;
+  int n2;
+  int result;
+}Quiz;
+
 //draw.c functions
 void drawMap(void);
 void drawEntity(Entity* entity);
@@ -95,13 +103,17 @@ Randam_Level *creatRandom(void);
 // util.c functions
 char *ft_itoa(int n);
 long int ft_abs(long int nbr);
+int	ft_atoi(const char *nptr);
 
 // npc.c functions 
 Entity* createNpc(Position npc_pos);
 void npc_move();
+int npc_collision();
 
 //quiz.c
-//void CallQuiz(void);
+void callQuiz(void);
+void inputMessage(void);
+void quizMessage(char *str);
 
 
 extern Entity* player; //전역변수 공유 -> 다른 소스파일에 정의가 되어 있으니 찾아가서 사용할 것 이라는 뜻
@@ -112,5 +124,7 @@ extern Position roomPos[10];
 extern Randam_Level *randam_Level;
 extern Entity* npc; //npc 생성 추가'
 extern int direction;
+extern char answer[3];
+extern Quiz* quiz;
 
 #endif

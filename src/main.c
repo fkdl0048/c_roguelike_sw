@@ -51,7 +51,10 @@ Entity* npc;
 int curLocationFlag = 0;
 time_t start_time;
 time_t cur_time;
+Quiz *quiz;
 int level_time = 600; // 10분
+
+char answer[3];
 
 Randam_Level *randam_Level;
 int max_lock_room = 4;

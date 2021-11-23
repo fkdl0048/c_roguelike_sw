@@ -45,3 +45,10 @@ void npc_move(){
         if(npc->pos.x==secondFloorX + 3) direction = 0;
     }
 }
+
+int npc_collision(){
+    if (npc->pos.x == player->pos.x && npc->pos.y == player->pos.y)
+        return TRUE;
+    else
+        return FALSE;
+}
