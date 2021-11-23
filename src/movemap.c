@@ -47,8 +47,13 @@ void callMoveMap(char check){
             downFloor();
     }
     else if (check == '-' || check == '|'){
-        if (curLocationFlag == 1)
+        if (curLocationFlag == 1){
             enterRoom();
+            if(randam_Level[curLocationFlag - 2].quiz == 1){
+                callQuiz();
+            }
+        }
+            
         else if(curLocationFlag >= 2)
             exitRoom();
     }
