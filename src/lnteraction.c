@@ -10,8 +10,12 @@ void callInteraction(void){
         callMassageBox(interch);
         callMoveMap(interch);
         callItem(&map[pos.y+degPos[i].y][pos.x+degPos[i].x]);
-        if(interch == 'K')
+        if(interch == '/'){
             inven->key++;
+            map[roomY + 1][roomX + roomWidth / 2].ch = ' ';
+            //map[]
+        }
+        //inven->key++;
         // 메세지 박스 상호작용 부분 추가
     }
 }

@@ -60,7 +60,6 @@ void setFirstFloor(void)
         map[y][x].ch = '[';
         map[y][x].walkable = FALSE;
     }
-    map[8][8].ch = '/';
 }
 
 void setSecondFloor(void)
@@ -206,6 +205,7 @@ Position setupMap(void)
         setRoomFloor();
         start_pos.x = roomX + roomWidth / 2;
         start_pos.y = roomY + roomHeight - 1;
+        
     }
 
     return start_pos;

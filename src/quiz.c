@@ -7,6 +7,7 @@ Quiz* createQuiz(void){
     tmp->n2 = (rand()%99) + 1;
     tmp->result= tmp->n1 + tmp->n2;
 
+
     return tmp;
 }
 
@@ -44,10 +45,8 @@ void callQuiz(void){
     quiz = createQuiz();
     drawEverything();
     printMassage("Quiz!!");
-    //printf("1");
     drawEverything();
     char s[10];
-    
     strcpy(s,ft_itoa(quiz->n1));
     strcat(s,"+");
     strcat(s,ft_itoa(quiz->n2));
@@ -55,4 +54,5 @@ void callQuiz(void){
     quizMessage(s);
     drawEverything();
     checkAnswer();
+    halfdelay(5);
 }

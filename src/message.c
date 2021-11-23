@@ -13,6 +13,7 @@ void printMassage(char *str){
         }
     }
 }
+
 void quizMessage(char *str){//퀴즈 출력 중 시간 표시 안되는 것, inputMessage 자동으로 입력되는 것 수정필요
     mvaddstr(27,3,str);
     inputMessage();
