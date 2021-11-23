@@ -53,7 +53,6 @@ void drawCurLocation(void){
     }
 }
 
-
 void drawTimer(void){
     printTime();
 }
@@ -79,9 +78,6 @@ void drawEverything(void)
     if (curLocationFlag == 1)
         drawEntity(npc);
 }
-
-
-
 
 
 // 프레임 부분 나중에 추가..! 이슈 추가 할것
