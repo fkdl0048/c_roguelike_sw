@@ -30,17 +30,6 @@ void checkAnswer(void){
     free(quiz);
 }
 
-// char* makeQuiz(void){
-//     char s[10];
-    
-//     strcpy(s,ft_itoa(quiz->n1));
-//     strcat(s,"+");
-//     strcat(s,ft_itoa(quiz->n2));
-//     strcat(s,"=");
-
-//     return s;
-// }
-
 void callQuiz(void){
     quiz = createQuiz();
     drawEverything();
