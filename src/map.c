@@ -156,6 +156,7 @@ void setSecondFloor(void)
 
 void setRoomFloor(void)
 {
+    //randam_Level
     for (int y = roomY; y < roomY + roomHeight; y++)
     {
         for (int x = roomX; x < roomX + roomWidth; x++)
@@ -167,6 +168,25 @@ void setRoomFloor(void)
     map[roomY + roomHeight][roomX + roomWidth / 2 - 1].ch = '+';
     map[roomY + roomHeight][roomX + roomWidth / 2 + 1].ch = '+';
     map[roomY + roomHeight][roomX + roomWidth / 2].ch = '-';
+    
+
+    // 해당 좌표들 배열로 만들어서 포지션을 rand()설정
+    // object 무조건 수정
+    map[15][50].ch = '0';
+    map[15][50].walkable = FALSE;
+    map[15][50].item = '0';
+    map[15][51].walkable = FALSE;
+    map[15][51].ch = '0';
+    map[15][45].ch = '0';
+    map[15][45].walkable = FALSE;
+    map[15][46].ch = '0';
+    map[15][46].walkable = FALSE;
+    //랜덤성 부여 수정 필요
+
+    // if(randam_Level[curLocationFlag - 2].quiz == 1){
+    //     callQuiz();
+    // }
+
 }
 
 Position setupMap(void)

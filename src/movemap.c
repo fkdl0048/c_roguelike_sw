@@ -11,9 +11,21 @@ void downFloor(void){
 }
 
 void enterRoom(void){
+
     for(int i = 0;i < 10; i++){
         if (player->pos.x == roomPos[i].x && player->pos.y == roomPos[i].y)
         {
+            if(randam_Level[i].lock_room == 1){
+                if(inven->key > 0){
+                    printMassage("You used the key.");
+                    randam_Level[i].lock_room = 0;
+                    inven->key--;
+                }
+                else{
+                    printMassage("This room is locked.");
+                    return;
+                }
+            }
             curLocationFlag = i + 2;
             break;
         }

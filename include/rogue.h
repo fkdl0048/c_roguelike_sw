@@ -23,6 +23,7 @@ typedef struct //구조체 선언
 typedef struct
 {
   char ch;
+  char item;
   bool walkable;
 }Tile;
 
@@ -76,7 +77,7 @@ void movePlayer(Position newPos);
 
 // inventory.c functions
 Inventory* createInventory(void);
-void printInventory(void);
+void callItem(Tile* check);
 
 // time.c functions
 void printTime(void);
@@ -95,11 +96,21 @@ Randam_Level *creatRandom(void);
 char *ft_itoa(int n);
 long int ft_abs(long int nbr);
 
+// npc.c functions 
+Entity* createNpc(Position npc_pos);
+void npc_move();
+
+//quiz.c
+//void CallQuiz(void);
+
+
 extern Entity* player; //전역변수 공유 -> 다른 소스파일에 정의가 되어 있으니 찾아가서 사용할 것 이라는 뜻
 extern Tile** map;
 extern Inventory* inven; //인벤토리 객체
 extern int curLocationFlag;
 extern Position roomPos[10];
 extern Randam_Level *randam_Level;
+extern Entity* npc; //npc 생성 추가'
+extern int direction;
 
 #endif

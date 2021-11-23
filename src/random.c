@@ -57,5 +57,9 @@ Randam_Level *creatRandom(void){
     return random;
 }
 
+// void callRandom(void){
+//     if()
+// }
+
 
 // random free함수 작성하기

@@ -9,6 +9,7 @@ void callInteraction(void){
         interch = map[pos.y+degPos[i].y][pos.x+degPos[i].x].ch;
         callMassageBox(interch);
         callMoveMap(interch);
+        callItem(&map[pos.y+degPos[i].y][pos.x+degPos[i].x]);
         if(interch == 'K')
             inven->key++;
         // 메세지 박스 상호작용 부분 추가

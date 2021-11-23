@@ -44,6 +44,7 @@ extern int massageBoxHeight;
 extern time_t start_time;
 extern time_t cur_time;
 extern int level_time;
+extern int end_time;
 
 // etc
 extern int max_lock_room;

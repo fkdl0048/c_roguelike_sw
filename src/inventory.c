@@ -8,8 +8,17 @@ Inventory *createInventory(void){
     return tmp;
 }
 
-void callItem(char check){
-    
+void callItem(Tile* check){
+    if(check->ch == '0'){
+        if(check->item == '0'){
+            printMassage("Get key..!!!");
+            inven->key++;
+            check->item = ' ';
+        }
+        else{
+            printMassage("Nothing");
+        }
+    }
 }
 
 // free함수 만들기

@@ -47,6 +47,7 @@ int massageBoxHeight = 3;
 Entity* player; //전역 포인터 변수 선언(및 정의 헤더파일에 존재하는 extern정의) -> player.c에서 동적할당하여 사용
 Tile** map;
 Inventory *inven;
+Entity* npc;
 int curLocationFlag = 0;
 time_t start_time;
 time_t cur_time;
@@ -60,6 +61,10 @@ int max_box = 1;
 int max_driver = 1;
 
 Position roomPos[10];
+Position npcStartPos = {4, 6};
+
+int direction = 0;
+int end_time;
 
 int main(void)
 {
@@ -74,6 +79,7 @@ int main(void)
   start_pos = setupMap();
   player = createPlayer(start_pos);
   inven = createInventory();
+  npc = createNpc(npcStartPos);
 
   gameLoop();
   
@@ -81,3 +87,7 @@ int main(void)
 
   return 0;
 }
+
+// 2~11
+
+//roompos -> randam_level 사용

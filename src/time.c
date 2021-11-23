@@ -2,9 +2,12 @@
 
 void printTime(void){
     cur_time = time(NULL);
+    int ori_time = end_time;
 
     char timer[10] = "";
-    int end_time = level_time - (long long int)(cur_time - start_time);
+    end_time = level_time - (long long int)(cur_time - start_time);
+    if (end_time != ori_time)
+        npc_move();
     int min = end_time / 60;
     int sec = end_time % 60;
     strcat(timer,ft_itoa(min));
