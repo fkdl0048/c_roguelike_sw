@@ -23,7 +23,6 @@ Randam_Level *creatRandom(void){
 
     while (lock_room_num)
     {
-        printf("dk!");
         ran = rand() % 10;
         if(random[ran].lock_room == 0){
             random[ran].lock_room++;
@@ -57,3 +56,6 @@ Randam_Level *creatRandom(void){
     
     return random;
 }
+
+
+// random free함수 작성하기

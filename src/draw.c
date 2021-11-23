@@ -21,9 +21,8 @@ void drawRect(int x,int y,int width, int height)
     int i,j;
     for(i = 1; i <= height;i++){
         for (j = 1; j <= width; j++){
-            if((i == 1 || i == height) && (j == 1 || j == width)){
+            if((i == 1 || i == height) && (j == 1 || j == width))
                 mvaddch(y+i,x+j,'*');
-            }
             else if(i == 1 || i == height)
                 mvaddch(y+i,x+j,'-');
             else if(j == 1 || j == width)
