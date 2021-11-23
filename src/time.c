@@ -13,5 +13,6 @@ void printTime(void){
 
     mvaddstr(timerFrameY+2,timerFrameX+3,timer);
 } 
+// draw 부분으로 이동
 
 // 시간 확인은 end_time 사용

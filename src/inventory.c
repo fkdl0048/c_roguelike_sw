@@ -11,3 +11,5 @@ Inventory *createInventory(void){
 void callItem(char check){
     
 }
+
+// free함수 만들기
