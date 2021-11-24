@@ -31,6 +31,7 @@ NpcEntity* createNpc(Position npc_pos)
 }
 
 void npc_move(){
+    
     if(direction == 0){
         npc->pos.y++;
         if(npc->pos.y==secondFloorHeight - 2) direction = 1;

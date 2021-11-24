@@ -7,6 +7,7 @@ bool setup(void)
     curs_set(0); //커서 깜박이 제거
     halfdelay(5);
     scrollok(stdscr, TRUE);
+    keypad(stdscr, TRUE);
     srand((unsigned)time(NULL));
     if (has_colors()) //color 예외처리
     {

@@ -18,6 +18,7 @@ void handleInput(int input)
   switch(input)
   {
     //move up
+    case KEY_UP:
     case 'w':
       newPos.y--;
       break;

@@ -80,7 +80,7 @@ void drawNpc()
     else
         mvaddch(npc->pos.y, npc->pos.x, ' ');
 }
-
+int i = 0;
 void drawEverything(void)
 {
     clear();
@@ -91,6 +91,7 @@ void drawEverything(void)
     drawTimer();
     drawInventory();
     drawEntity(player);
+    //npc_move();
     if (curLocationFlag == 1)
         drawNpc();
     clearFOV();

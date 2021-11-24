@@ -17,13 +17,16 @@ void checkAnswer(void){
     if(ft_atoi(answer) == quiz->result){
         printMassage("Correct");
         map[roomY + 1][roomX + roomWidth / 2].ch = '/';
+        map[roomY + 1][roomX + roomWidth / 2].item = '/';
         map[roomY + 1][roomX + roomWidth / 2].walkable = FALSE;
     }
     else{
         printMassage("Wrong Answer");
-        level_time-=10;
+        level_time -= 60;
         map[roomY + 1][roomX + roomWidth / 2].ch = ' ';
         map[roomY + 1][roomX + roomWidth / 2].walkable = TRUE;
+        damageflag++;
+        drawEverything();
     }
     randam_Level[curLocationFlag-2].quiz = 0;
 
