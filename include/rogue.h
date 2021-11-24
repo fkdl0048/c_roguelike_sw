@@ -11,6 +11,12 @@
 #include <string.h>
 #include <locale.h>
 #include <unistd.h>
+#include <math.h>
+
+// color pairs 색 설정
+#define VISIBLE_COLOR 1
+#define SEEN_COLOR 2
+#define NPC_COLOR 3
 
 //좌표
 typedef struct //구조체 선언
@@ -23,8 +29,13 @@ typedef struct //구조체 선언
 typedef struct
 {
   char ch;
-  char item; //숨겨진 아이템
+  int item; //숨겨진 아이템
   bool walkable;
+  // 색설정 부분
+  int color;
+  bool transparent;
+  bool visible;
+  bool seen;
 }Tile;
 
 //인벤토리
@@ -49,7 +60,19 @@ typedef struct
 {
   Position pos;
   char ch;
+  int color;
 } Entity; 
+
+//npc entity
+typedef struct 
+{
+  Position pos;
+  char ch;
+  int color;
+  bool transparent; // 벽 관통 여부
+  bool visible; // 현재위치에서 보이는지
+  bool seen; // 지나간 곳
+} NpcEntity;
 
 //퀴즈
 typedef struct
@@ -66,7 +89,7 @@ void drawEntity(Entity* entity);
 void drawEverything(void);
 
 // engine.c functions
-void setup(void);
+bool setup(void);
 void gameLoop(void);
 void closeGame(void);
 int kbhit(void);
@@ -100,6 +123,7 @@ void callInteraction(void);
 
 // random.c functions
 Randam_Level *creatRandom(void);
+void callRandom(void);
 
 // util.c functions
 char *ft_itoa(int n);
@@ -107,7 +131,7 @@ long int ft_abs(long int nbr);
 int	ft_atoi(const char *nptr);
 
 // npc.c functions 
-Entity* createNpc(Position npc_pos);
+NpcEntity* createNpc(Position npc_pos);
 void npc_move();
 int npc_collision();
 
@@ -116,14 +140,24 @@ void callQuiz(void);
 void inputMessage(void);
 void quizMessage(char *str);
 
+// fov.c functions
+void makeFOV();
+void clearFOV();
+int getDistance(Position origin, Position target);
+bool isInMap(int y, int x);
+bool lineOfSight(Position origin, Position target);
+int getSign(int a);
+
 
 extern Entity* player; //전역변수 공유 -> 다른 소스파일에 정의가 되어 있으니 찾아가서 사용할 것 이라는 뜻
 extern Tile** map;
 extern Inventory* inven; //인벤토리 객체
 extern Position roomPos[10];
 extern Randam_Level *randam_Level;
-extern Entity* npc; //npc 생성 추가
+//extern Entity* npc; //npc 생성 추가
 extern Quiz* quiz;
+extern Position pos_arr[12];
+extern NpcEntity* npc; //npc 생성 추가 (변경)
 
 extern int direction;
 extern char answer[3];

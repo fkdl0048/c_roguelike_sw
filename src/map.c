@@ -20,6 +20,11 @@ void resetMapTiles() // 벽 다시그리기
         {
             map[y][x].ch = '#';
             map[y][x].walkable = FALSE; //false 즉, 벽 걷기 불가능한.
+            map[y][x].item = 0;
+            map[y][x].color = COLOR_PAIR(VISIBLE_COLOR);
+            map[y][x].transparent = FALSE;
+            map[y][x].visible = FALSE;
+            map[y][x].seen = FALSE;
         }
     }
 }
@@ -33,12 +38,14 @@ void setFirstFloor(void)
         {
             map[y][x].ch = ' ';
             map[y][x].walkable = TRUE;
+            map[y][x].transparent = TRUE;
         }
     }
     for (int y = firstFloorHeight;y < firstFloorHeight + firstFloorRoomSize; y++){
         for (int x = (firstFloorWidth + firstFloorX)/2 - 2 * firstFloorRoomSize; x < (firstFloorWidth + firstFloorX)/2 + 2 * firstFloorRoomSize; x++){
             map[y][x].ch = ' ';
             map[y][x].walkable = TRUE;
+            map[y][x].transparent = TRUE;
         }
     }
     //Door
@@ -71,6 +78,7 @@ void setSecondFloor(void)
         {
             map[y][x].ch = ' ';
             map[y][x].walkable = TRUE;
+            map[y][x].transparent = TRUE;
         }
     }
     for (int y = secondFloorY + secondFloorCenterSize; y < secondFloorHeight - secondFloorCenterSize; y++)
@@ -79,6 +87,10 @@ void setSecondFloor(void)
         {
             map[y][x].ch = '#';
             map[y][x].walkable = FALSE;
+            map[y][x].color = COLOR_PAIR(VISIBLE_COLOR);
+            map[y][x].transparent = FALSE;
+            map[y][x].visible = FALSE;
+            map[y][x].seen = FALSE;
         }
     }
     for (int y = secondFloorY + secondFloorCenterSize; y < secondFloorHeight - secondFloorCenterSize; y++)
@@ -87,6 +99,7 @@ void setSecondFloor(void)
         {
             map[y][x].ch = ' ';
             map[y][x].walkable = TRUE;
+            map[y][x].transparent = TRUE;
         }
     }
     //계단
@@ -161,6 +174,7 @@ void setRoomFloor(void)
         {
             map[y][x].ch = ' ';
             map[y][x].walkable = TRUE;
+            map[y][x].transparent = TRUE;
         }
     }
     map[roomY + roomHeight][roomX + roomWidth / 2 - 1].ch = '+';
@@ -170,27 +184,22 @@ void setRoomFloor(void)
 
     // 해당 좌표들 배열로 만들어서 포지션을 rand()설정
     // object 무조건 수정
+    int arr_cnt = 0;
     for(int y = roomY + 4; y < roomY + roomHeight; y+= 3){
         for(int x = roomX + 5;x < roomX + roomWidth; x += 10){
             map[y][x].ch = ob_ch;
             map[y][x + 1].ch = ob_ch;
             map[y][x].walkable = FALSE;
             map[y][x + 1].walkable = FALSE;
+            pos_arr[arr_cnt].y = y;
+            pos_arr[arr_cnt].x = x;
+            arr_cnt++;
+            pos_arr[arr_cnt].y = y;
+            pos_arr[arr_cnt].x = x+1;
+            arr_cnt++;
         }
     }
-    // map[15][50].ch = '0';
-    // map[15][50].walkable = FALSE;
-    // map[15][50].item = '0';
-    // map[15][51].walkable = FALSE;
-    // map[15][51].ch = '0';
-    // map[15][45].ch = '0';
-    // map[15][45].walkable = FALSE;
-    // map[15][46].ch = '0';
-    // map[15][46].walkable = FALSE;
-    //랜덤성 부여 수정 필요
-
-
-
+    callRandom();
 }
 
 Position setupMap(void)
@@ -214,7 +223,6 @@ Position setupMap(void)
         start_pos.y = roomY + roomHeight - 1;
         
     }
-
     return start_pos;
 }
 

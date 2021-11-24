@@ -25,8 +25,6 @@ void callMassageBox(char check){
     case '/':
         printMassage("get?");
         break;
-    case '8':
-        printMassage("YoungJoo ba bo ba bo");
     default:
         break;
     }

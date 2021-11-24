@@ -47,7 +47,7 @@ int massageBoxHeight = 3;
 Entity* player; //전역 포인터 변수 선언(및 정의 헤더파일에 존재하는 extern정의) -> player.c에서 동적할당하여 사용
 Tile** map;
 Inventory *inven;
-Entity* npc;
+NpcEntity* npc;
 int curLocationFlag = 0;
 time_t start_time;
 time_t cur_time;
@@ -59,7 +59,7 @@ char answer[3];
 Randam_Level *randam_Level;
 int max_lock_room = 4;
 int max_key = 5;
-int max_quiz = 5;
+int max_quiz = 2;
 int max_box = 1;
 int max_driver = 1;
 
@@ -69,24 +69,31 @@ Position npcStartPos = {4, 6};
 int direction = 0;
 int end_time;
 
+// test Postion array
+Position pos_arr[12];
+
 int main(void)
 {
   Position start_pos;
 
   start_time = time(NULL);
 
-  setup();
+  int compatibleTerminal = setup();
+  if (compatibleTerminal){
+    randam_Level = creatRandom();
+    map = createMapTiles(); 
+    start_pos = setupMap();
+    player = createPlayer(start_pos);
+    inven = createInventory();
+    npc = createNpc(npcStartPos);
 
-  randam_Level = creatRandom();
-  map = createMapTiles(); 
-  start_pos = setupMap();
-  player = createPlayer(start_pos);
-  inven = createInventory();
-  npc = createNpc(npcStartPos);
-
-  gameLoop();
-  
-  closeGame();
+    // restart 부분 추가
+    gameLoop();
+    
+    closeGame();
+  }
+  else
+    endwin();
 
   return 0;
 }

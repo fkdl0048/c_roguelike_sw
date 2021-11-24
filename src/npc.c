@@ -16,13 +16,16 @@ directon(이동 방향)
 3:←
 */
 
-Entity* createNpc(Position npc_pos)
+NpcEntity* createNpc(Position npc_pos)
 {
-  Entity* newNpc = calloc(1, sizeof(Entity)); //동적할당 부분
+  NpcEntity* newNpc = calloc(1, sizeof(NpcEntity)); //동적할당 부분
 
   newNpc->pos.y = npc_pos.y; //위치, 캐릭터 모양 초기화 부분
   newNpc->pos.x = npc_pos.x;
   newNpc->ch = 'X';
+  newNpc->color = COLOR_PAIR(NPC_COLOR);
+  newNpc->visible = FALSE;
+  newNpc->seen = FALSE;
 
   return newNpc; //해당 포인터 반환
 }
@@ -47,7 +50,7 @@ void npc_move(){
 }
 
 int npc_collision(){
-    if (npc->pos.x == player->pos.x && npc->pos.y == player->pos.y)
+    if (npc->pos.x == player->pos.x && npc->pos.y == player->pos.y && curLocationFlag == 1)
         return TRUE;
     else
         return FALSE;

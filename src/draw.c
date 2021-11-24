@@ -6,7 +6,12 @@ void drawMap(void) // 맵 그림
     {
         for(int x = 2; x < MAP_WIDTH; x++)
         {
-            mvaddch(y,x,map[y][x].ch);
+            if (map[y][x].visible)
+                mvaddch(y, x, map[y][x].ch | map[y][x].color);
+            // else if (map[y][x].seen)
+            //     mvaddch(y, x, map[y][x].ch | COLOR_PAIR(SEEN_COLOR));
+            else
+                mvaddch(y, x, ' ');
         }
     }
 }
@@ -66,9 +71,20 @@ void drawInventory(void){
     mvaddstr(invenFrameY+6,invenFrameX+3,strcat(cardkey_str,ft_itoa(inven->cardkey)));
 }
 
+void drawNpc()
+{
+    if (npc->visible)
+        mvaddch(npc->pos.y, npc->pos.x, npc->ch | npc->color);
+    else if (npc->seen)
+        mvaddch(npc->pos.y, npc->pos.x, npc->ch | COLOR_PAIR(SEEN_COLOR));
+    else
+        mvaddch(npc->pos.y, npc->pos.x, ' ');
+}
+
 void drawEverything(void)
 {
     clear();
+    makeFOV();
     drawFrame(); 
     drawMap();
     drawCurLocation();
@@ -76,7 +92,8 @@ void drawEverything(void)
     drawInventory();
     drawEntity(player);
     if (curLocationFlag == 1)
-        drawEntity(npc);
+        drawNpc();
+    clearFOV();
 }
 
 

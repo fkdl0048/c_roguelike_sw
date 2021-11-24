@@ -12,6 +12,8 @@
   "C_Cpp_Runner.excludeSearch": [],
   "C_Cpp_Runner.enableWarnings": true,
   "C_Cpp_Runner.warningsAsError": false,
+  "C_Cpp.default.compilerPath": "C:\\MinGW\\bin\\g++.exe",
+  "miDebuggerPath": "C:\\MinGW\\bin\\g++.exe",
   "files.associations": {
     "*.py": "python",
     "stdlib.h": "c",
