@@ -21,6 +21,18 @@
     "time.h": "c",
     "rogue.h": "c",
     "curses.h": "c",
-    "ncurses.h": "c"
+    "ncurses.h": "c",
+    "cmath": "c",
+    "cstdarg": "c",
+    "cstdint": "c",
+    "cstdio": "c",
+    "cstdlib": "c",
+    "cwchar": "c",
+    "cwctype": "c",
+    "exception": "c",
+    "type_traits": "c",
+    "limits": "c",
+    "*.tcc": "c",
+    "typeinfo": "c"
   }
 }

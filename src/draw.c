@@ -84,6 +84,7 @@ int i = 0;
 void drawEverything(void)
 {
     clear();
+    //box(stdscr, '.','.');
     makeFOV();
     drawFrame(); 
     drawMap();

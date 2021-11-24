@@ -23,14 +23,17 @@ void handleInput(int input)
       newPos.y--;
       break;
     //move down
+    case KEY_DOWN:
     case 's':
       newPos.y++;
       break;
     //move left
+    case KEY_LEFT:
     case 'a':
       newPos.x--;
       break;
     //move right
+    case KEY_RIGHT:
     case 'd':
       newPos.x++;
       break;
