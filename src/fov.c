@@ -1,14 +1,13 @@
 #include <rogue.h>
 
-// field of view
 void makeFOV()
 { 
     int y, x, distance;
     int RADIUS = 15;
     Position target;
 
-    map[player->pos.y][player->pos.x].visible = TRUE;
-    map[player->pos.y][player->pos.x].seen = TRUE;
+    map[player->pos.y][player->pos.x].visible = true;
+    map[player->pos.y][player->pos.x].seen = true;
 
     target = npc->pos;
     distance = getDistance(player->pos, target);
@@ -16,8 +15,8 @@ void makeFOV()
     { 
         if (isInMap(target.y, target.x) && lineOfSight(player->pos, target))
         { 
-            npc->visible = TRUE;
-            npc->seen = TRUE;
+            npc->visible = true;
+            npc->seen = true;
         } 
     }
 
@@ -33,8 +32,8 @@ void makeFOV()
       { 
         if (isInMap(y, x) && lineOfSight(player->pos, target))
         { 
-          map[y][x].visible = TRUE;
-          map[y][x].seen = TRUE;
+          map[y][x].visible = true;
+          map[y][x].seen = true;
         } 
       } 
     } 
@@ -52,7 +51,7 @@ void clearFOV()
     for (x = player->pos.x - RADIUS; x < player->pos.x + RADIUS; x++)
     {
       if (isInMap(y, x))
-        map[y][x].visible = FALSE;
+        map[y][x].visible = false;
     }
   } 
 } 
@@ -70,12 +69,12 @@ int getDistance(Position origin, Position target)
 
 bool isInMap(int y, int x)
 { 
-  if ((0 < y && y < MAP_HEIGHT - 1) && (0 < x && x < MAP_WIDTH - 1))
+  if ((0 < y && y < MAP_HEIGHT) && (0 < x && x < MAP_WIDTH))
   { 
-    return TRUE;
+    return true;
   }
 
-  return FALSE;
+  return false;
 }
 
 bool lineOfSight(Position origin, Position target)
@@ -111,12 +110,12 @@ bool lineOfSight(Position origin, Position target)
 
       if (x == origin.x && y == origin.y)
       {
-        return TRUE;
+        return true;
       }
     }
     while (map[y][x].transparent);
 
-    return FALSE;
+    return false;
   }
   else
   {
@@ -135,12 +134,12 @@ bool lineOfSight(Position origin, Position target)
 
       if (x == origin.x && y == origin.y)
       {
-        return TRUE;
+        return true;
       }
     }
     while (map[y][x].transparent);
 
-    return FALSE;
+    return false;
   }
 }
 

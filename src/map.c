@@ -189,8 +189,10 @@ void setRoomFloor(void)
         for(int x = roomX + 5;x < roomX + roomWidth; x += 10){
             map[y][x].ch = ob_ch;
             map[y][x + 1].ch = ob_ch;
+            map[y][x].transparent = FALSE;
             map[y][x].walkable = FALSE;
             map[y][x + 1].walkable = FALSE;
+            map[y][x + 1].transparent = FALSE;
             pos_arr[arr_cnt].y = y;
             pos_arr[arr_cnt].x = x;
             arr_cnt++;
