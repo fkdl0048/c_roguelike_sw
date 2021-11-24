@@ -55,11 +55,50 @@ Randam_Level *creatRandom(void){
     }
     
     return random;
+
+    
 }
 
-// void callRandom(void){
-//     if()
-// }
 
+void callRandom(void){
+    int ran;
+    if(randam_Level[curLocationFlag - 2].key == 1){
+        while (1)
+        {
+            ran = rand() % 12;
+            if(map[pos_arr[ran].y][pos_arr[ran].x].item)
+                continue;
+            else{
+                map[pos_arr[ran].y][pos_arr[ran].x].item = 1;
+                break;
+            }
+        }
+    }
+    if(randam_Level[curLocationFlag - 2].driver == 1){
+        while (1)
+        {
+            ran = rand() % 12;
+            if(map[pos_arr[ran].y][pos_arr[ran].x].item)
+                continue;
+            else{
+                map[pos_arr[ran].y][pos_arr[ran].x].item = 2;
+                break;
+            }
+        }
+    }
+    if(randam_Level[curLocationFlag - 2].box == 1){
+        while (1)
+        {
+            ran = rand() % 12;
+            if(map[pos_arr[ran].y][pos_arr[ran].x].item)
+                continue;
+            else{
+                map[pos_arr[ran].y][pos_arr[ran].x].item = 3;
+                break;
+            }
+
+        }
+    }
+}
 
 // random free함수 작성하기
