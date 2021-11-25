@@ -55,8 +55,6 @@ Randam_Level *creatRandom(void){
     }
     
     return random;
-
-    
 }
 
 
@@ -96,7 +94,6 @@ void callRandom(void){
                 map[pos_arr[ran].y][pos_arr[ran].x].item = 3;
                 break;
             }
-
         }
     }
 }

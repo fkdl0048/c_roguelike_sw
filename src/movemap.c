@@ -47,13 +47,22 @@ void callMoveMap(char check){
             downFloor();
     }
     else if (check == '-' || check == '|'){
+        if(curLocationFlag == 0 && check == '-'){
+            if(inven->cardkey > 0){
+                printMassage("clear!");
+                inven->cardkey--;
+            }
+            else{
+                printMassage("I think I need a card key.");
+                printMassage("Let's go to the 2nd floor.");
+            }
+        }
         if (curLocationFlag == 1){
             enterRoom();
             if(randam_Level[curLocationFlag - 2].quiz == 1){
                 callQuiz();
             }
         }
-            
         else if(curLocationFlag >= 2)
             exitRoom();
     }

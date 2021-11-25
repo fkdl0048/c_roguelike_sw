@@ -7,7 +7,6 @@ Quiz* createQuiz(void){
     tmp->n2 = (rand()%99) + 1;
     tmp->result= tmp->n1 + tmp->n2;
 
-
     return tmp;
 }
 

@@ -61,7 +61,7 @@ char answer[3];
 Randam_Level *randam_Level;
 int max_lock_room = 4;
 int max_key = 5;
-int max_quiz = 10;
+int max_quiz = 2;
 int max_box = 1;
 int max_driver = 1;
 

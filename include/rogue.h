@@ -119,6 +119,7 @@ void printTime();
 // message.c functions
 void printMassage(char *str);
 void callMassageBox(char check);
+void printStartMassage(void);
 
 // ineraction.c functions
 void callInteraction(void);

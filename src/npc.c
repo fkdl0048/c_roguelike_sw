@@ -1,21 +1,5 @@
 #include <rogue.h>
 
-/*
-Position npc_pos
-npc 시작 위치 (5,6) => 계단 이동 후 아래
-]]]@
-   X
-*/
-
-/*
-↓→↑←순으로 이동
-directon(이동 방향)
-0:↓
-1:→
-2:↑
-3:←
-*/
-
 NpcEntity* createNpc(Position npc_pos, int dir)
 {
   NpcEntity* newNpc = calloc(1, sizeof(NpcEntity)); //동적할당 부분

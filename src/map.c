@@ -67,6 +67,9 @@ void setFirstFloor(void)
         map[y][x].ch = '[';
         map[y][x].walkable = FALSE;
     }
+    // object
+    
+    
 }
 
 void setSecondFloor(void)
@@ -211,8 +214,8 @@ Position setupMap(void)
     Position start_pos;
     if(curLocationFlag == 0){
         setFirstFloor();
-        start_pos.x = 11;
-        start_pos.y = 11;
+        start_pos.x = 46;
+        start_pos.y = 17;
     }
     else if(curLocationFlag == 1){
         setSecondFloor();

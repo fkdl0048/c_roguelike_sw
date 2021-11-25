@@ -32,10 +32,11 @@ void gameLoop(void)
     int ch;
 
     drawEverything();
+    printStartMassage();
 
     while(1) //사용자로 부터 키 입력받으며 무한루프
     {
-        if (npc_collision(npc) || npc_collision(secondNpc)){
+        if ((npc_collision(npc) || npc_collision(secondNpc)) && curLocationFlag == 1){
             printMassage("Caught by npc!");
             break;
         }
