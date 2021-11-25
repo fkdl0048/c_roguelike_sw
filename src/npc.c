@@ -31,10 +31,12 @@ NpcEntity* createNpc(Position npc_pos, int dir)
   return newNpc; //해당 포인터 반환
 }
 
+
 void npc_move(NpcEntity *npc_){
     if(npc_->direction == 0){
         npc_->pos.y++;
         if(npc_->pos.y==secondFloorHeight - 2) npc_->direction = 1;
+
     }
     else if(npc_->direction == 1){
         npc_->pos.x++;

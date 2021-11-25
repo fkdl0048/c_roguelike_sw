@@ -5,12 +5,18 @@ void printMassage(char *str){
     mvaddch(27,88,'<' | A_BLINK);
     while (1)
     {
-        printTime();
+        // if(damageflag == 1)
+        //     attron(COLOR_PAIR(NPC_COLOR));
+        // printTime();
         if(kbhit()){
             if(getch() == '\n'){
                 break;
             }
         }
+        // if(damageflag == 1){
+        //     attroff(COLOR_PAIR(NPC_COLOR));
+        //     damageflag--;
+        // }
     }
 }
 
@@ -30,10 +36,13 @@ void callMassageBox(char check){
     }
 }
 
+
 void inputMessage(void){
+    char *scan[100];
     echo();
     curs_set(1);
     mvgetnstr(27,10,answer,3);
+    //mvscanw(27,10,"%s",scan);
     mvaddch(27,88,'<' | A_BLINK);
     curs_set(0);
     noecho();

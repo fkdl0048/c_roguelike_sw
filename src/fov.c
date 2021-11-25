@@ -6,8 +6,8 @@ void makeFOV()
     int RADIUS = 15;
     Position target;
 
-    map[player->pos.y][player->pos.x].visible = true;
-    map[player->pos.y][player->pos.x].seen = true;
+    map[player->pos.y][player->pos.x].visible = TRUE;
+    map[player->pos.y][player->pos.x].seen = TRUE;
 
     target = npc->pos;
     distance = getDistance(player->pos, target);
@@ -15,8 +15,8 @@ void makeFOV()
     { 
         if (isInMap(target.y, target.x) && lineOfSight(player->pos, target))
         { 
-            npc->visible = true;
-            npc->seen = true;
+            npc->visible = TRUE;
+            npc->seen = TRUE;
         } 
     }
 
@@ -43,8 +43,8 @@ void makeFOV()
       { 
         if (isInMap(y, x) && lineOfSight(player->pos, target))
         { 
-          map[y][x].visible = true;
-          map[y][x].seen = true;
+          map[y][x].visible = TRUE;
+          map[y][x].seen = TRUE;
         } 
       } 
     } 
@@ -64,7 +64,7 @@ void clearFOV()
     for (x = player->pos.x - RADIUS; x < player->pos.x + RADIUS; x++)
     {
       if (isInMap(y, x))
-        map[y][x].visible = false;
+        map[y][x].visible = FALSE;
     }
   } 
 } 
@@ -84,10 +84,10 @@ bool isInMap(int y, int x)
 { 
   if ((0 < y && y < MAP_HEIGHT) && (0 < x && x < MAP_WIDTH))
   { 
-    return true;
+    return TRUE;
   }
 
-  return false;
+  return FALSE;
 }
 
 bool lineOfSight(Position origin, Position target)
@@ -123,12 +123,12 @@ bool lineOfSight(Position origin, Position target)
 
       if (x == origin.x && y == origin.y)
       {
-        return true;
+        return TRUE;
       }
     }
     while (map[y][x].transparent);
 
-    return false;
+    return FALSE;
   }
   else
   {
@@ -147,12 +147,12 @@ bool lineOfSight(Position origin, Position target)
 
       if (x == origin.x && y == origin.y)
       {
-        return true;
+        return TRUE;
       }
     }
     while (map[y][x].transparent);
 
-    return false;
+    return FALSE;
   }
 }
 

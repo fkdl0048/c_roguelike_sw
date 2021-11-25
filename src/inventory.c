@@ -20,7 +20,7 @@ void addCardkey(void){
 }
 
 void callItem(Tile* check){
-    if(check->ch == '0'){
+    if(check->ch == '0' || check->ch == '/'){
         if(check->item == 1){
             printMassage("Get key..!!!");
             inven->key++;

@@ -114,7 +114,7 @@ Inventory* createInventory(void);
 void callItem(Tile* check);
 
 // time.c functions
-void printTime(void);
+void printTime();
 
 // message.c functions
 void printMassage(char *str);
@@ -166,5 +166,6 @@ extern NpcEntity* secondNpc;
 extern int direction;
 extern char answer[3];
 extern int curLocationFlag;
+extern int damageflag;
 
 #endif

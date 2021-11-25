@@ -82,10 +82,11 @@ void drawNpc(NpcEntity *npc_)
     else
         mvaddch(npc_->pos.y, npc_->pos.x, ' ');
 }
-
+int i = 0;
 void drawEverything(void)
 {
     clear();
+    //box(stdscr, '.','.');
     makeFOV();
     drawFrame(); 
     drawMap();
