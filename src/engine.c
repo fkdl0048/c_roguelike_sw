@@ -15,6 +15,7 @@ bool setup(void)
         init_pair(VISIBLE_COLOR, COLOR_WHITE, COLOR_BLACK);
         init_pair(SEEN_COLOR, COLOR_BLUE, COLOR_BLACK);
         init_pair(NPC_COLOR, COLOR_RED, COLOR_BLACK);
+        init_pair(NPC_POV_COLOR, COLOR_BLACK, COLOR_RED);
         return TRUE;
     }
     else
@@ -33,7 +34,7 @@ void gameLoop(void)
 
     while(1) //사용자로 부터 키 입력받으며 무한루프
     {
-        if (npc_collision()){
+        if (npc_collision(npc) || npc_collision(secondNpc)){
             printMassage("Caught by npc!");
             break;
         }

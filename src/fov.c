@@ -20,6 +20,17 @@ void makeFOV()
         } 
     }
 
+    target = secondNpc->pos;
+    distance = getDistance(player->pos, target);
+    if (distance < RADIUS)
+    { 
+        if (isInMap(target.y, target.x) && lineOfSight(player->pos, target))
+        { 
+            secondNpc->visible = true;
+            secondNpc->seen = true;
+        } 
+    }
+
   for (y = player->pos.y - RADIUS; y < player->pos.y + RADIUS; y++)
   { 
     for (x = player->pos.x - RADIUS; x < player->pos.x + RADIUS; x++)
@@ -46,6 +57,8 @@ void clearFOV()
   int RADIUS = 15;
   npc->visible = FALSE;
   npc->seen = FALSE;
+  secondNpc->visible = FALSE;
+  secondNpc->seen = FALSE;
   for (y = player->pos.y - RADIUS; y < player->pos.y + RADIUS; y++)
   { 
     for (x = player->pos.x - RADIUS; x < player->pos.x + RADIUS; x++)

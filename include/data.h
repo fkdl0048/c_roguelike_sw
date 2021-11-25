@@ -52,4 +52,3 @@ extern int max_key;
 extern int max_quiz;
 extern int max_box;
 extern int max_driver;
-

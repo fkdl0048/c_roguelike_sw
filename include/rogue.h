@@ -17,6 +17,7 @@
 #define VISIBLE_COLOR 1
 #define SEEN_COLOR 2
 #define NPC_COLOR 3
+#define NPC_POV_COLOR 4
 
 //좌표
 typedef struct //구조체 선언
@@ -72,6 +73,7 @@ typedef struct
   bool transparent; // 벽 관통 여부
   bool visible; // 현재위치에서 보이는지
   bool seen; // 지나간 곳
+  int direction;
 } NpcEntity;
 
 //퀴즈
@@ -131,9 +133,10 @@ long int ft_abs(long int nbr);
 int	ft_atoi(const char *nptr);
 
 // npc.c functions 
-NpcEntity* createNpc(Position npc_pos);
-void npc_move();
-int npc_collision();
+NpcEntity* createNpc(Position npc_pos, int dir);
+void npc_move(NpcEntity *npc_);
+int npc_collision(NpcEntity *npc_);
+void drawNpcPov(NpcEntity *npc_);
 
 //quiz.c
 void callQuiz(void);
@@ -158,6 +161,7 @@ extern Randam_Level *randam_Level;
 extern Quiz* quiz;
 extern Position pos_arr[12];
 extern NpcEntity* npc; //npc 생성 추가 (변경)
+extern NpcEntity* secondNpc;
 
 extern int direction;
 extern char answer[3];

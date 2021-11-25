@@ -6,8 +6,9 @@ void drawMap(void) // 맵 그림
     {
         for(int x = 2; x < MAP_WIDTH; x++)
         {
-            if (map[y][x].visible)
+            if (map[y][x].visible){
                 mvaddch(y, x, map[y][x].ch | map[y][x].color);
+            }
             // else if (map[y][x].seen)
             //     mvaddch(y, x, map[y][x].ch | COLOR_PAIR(SEEN_COLOR));
             else
@@ -71,14 +72,15 @@ void drawInventory(void){
     mvaddstr(invenFrameY+6,invenFrameX+3,strcat(cardkey_str,ft_itoa(inven->cardkey)));
 }
 
-void drawNpc()
+void drawNpc(NpcEntity *npc_)
 {
-    if (npc->visible)
-        mvaddch(npc->pos.y, npc->pos.x, npc->ch | npc->color);
-    else if (npc->seen)
-        mvaddch(npc->pos.y, npc->pos.x, npc->ch | COLOR_PAIR(SEEN_COLOR));
+    if (npc_->visible)
+    {
+        mvaddch(npc_->pos.y, npc_->pos.x, npc_->ch | npc_->color);
+        drawNpcPov(npc_);
+    }
     else
-        mvaddch(npc->pos.y, npc->pos.x, ' ');
+        mvaddch(npc_->pos.y, npc_->pos.x, ' ');
 }
 
 void drawEverything(void)
@@ -90,9 +92,11 @@ void drawEverything(void)
     drawCurLocation();
     drawTimer();
     drawInventory();
+    if (curLocationFlag == 1){
+        drawNpc(npc);
+        drawNpc(secondNpc);
+    }
     drawEntity(player);
-    if (curLocationFlag == 1)
-        drawNpc();
     clearFOV();
 }
 

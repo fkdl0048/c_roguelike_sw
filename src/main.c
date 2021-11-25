@@ -48,6 +48,8 @@ Entity* player; //전역 포인터 변수 선언(및 정의 헤더파일에 존�
 Tile** map;
 Inventory *inven;
 NpcEntity* npc;
+NpcEntity* secondNpc;
+
 int curLocationFlag = 0;
 time_t start_time;
 time_t cur_time;
@@ -65,6 +67,7 @@ int max_driver = 1;
 
 Position roomPos[10];
 Position npcStartPos = {4, 6};
+Position secondNpcStartPos = {13, 85};
 
 int direction = 0;
 int end_time;
@@ -85,7 +88,8 @@ int main(void)
     start_pos = setupMap();
     player = createPlayer(start_pos);
     inven = createInventory();
-    npc = createNpc(npcStartPos);
+    npc = createNpc(npcStartPos, 0);
+    secondNpc = createNpc(secondNpcStartPos, 2);
 
     // restart 부분 추가
     gameLoop();
