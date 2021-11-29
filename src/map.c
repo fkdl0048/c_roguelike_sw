@@ -68,7 +68,7 @@ void setFirstFloor(void)
         map[y][x].walkable = FALSE;
     }
     // object
-    
+    map[31][23].ch = '[';
     
 }
 
