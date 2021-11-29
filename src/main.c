@@ -87,11 +87,14 @@ int main(void)
 {
   Position start_pos;
 
+  
+
   int compatibleTerminal = setup();
   
   if (compatibleTerminal){
     while (1)
     {
+      curLocationFlag = 0;
       start_time = time(NULL);
       randam_Level = creatRandom();
       map = createMapTiles(); 
@@ -116,3 +119,6 @@ int main(void)
   return 0;
 }
 
+// 2~11
+
+//roompos -> randam_level 사용

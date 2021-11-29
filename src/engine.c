@@ -36,6 +36,9 @@ int gameLoop(void)
 
     drawEverything();
     printStartMassage();
+    
+    start_time = time(NULL);
+    level_time = 600;
 
     while(1) //사용자로 부터 키 입력받으며 무한루프
     {
