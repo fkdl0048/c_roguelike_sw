@@ -67,10 +67,54 @@ void setFirstFloor(void)
         map[y][x].ch = '[';
         map[y][x].walkable = FALSE;
     }
+
     // object
-    
-    
+    //화분..?
+    for(int i=0;i<4;i++){
+        map[4][18+i*18].ch='<';
+        map[4][19+i*18].ch='Y';
+        map[4][20+i*18].ch='>';
+    }
+
+    //간판1
+    for(int i=0;i<11;i++){
+        map[10][6+i].ch='.';
+        map[13][6+i].ch='.';
+    }
+    map[11][6].ch=':';
+    map[11][16].ch=':';
+    map[12][6].ch=':';
+    map[12][16].ch=':';
+    map[13][6].ch=':';
+    map[13][16].ch=':'; 
+    map[11][8].ch='T'; map[11][9].ch='W'; map[11][10].ch='O';
+    map[11][11].ch='S'; map[11][12].ch='O'; map[11][13].ch='M'; map[11][14].ch='E';
+    map[12][9].ch='P'; map[12][10].ch='L'; map[12][11].ch='A'; map[12][12].ch='C'; map[12][13].ch='E';
+
+    //간판2
+    for(int i=0;i<10;i++){
+        map[10][73+i].ch='.';
+        map[12][73+i].ch='.';
+    }
+    map[11][73].ch=':';
+    map[11][82].ch=':';
+    map[12][73].ch=':';
+    map[12][82].ch=':'; 
+    map[11][76].ch='S'; map[11][77].ch='I'; map[11][78].ch='G'; map[11][79].ch='N';
+
+
+
 }
+
+
+/*
+.......... 10
+:  SIGN  : 12
+:........: 13
+
+<*>
+
+*/
 
 void setSecondFloor(void)
 {
