@@ -198,6 +198,7 @@ void setRoomFloor(void)
             map[y][x].color = COLOR_PAIR(ITEM_COLOR);
             pos_arr[arr_cnt].x = x;
             pos_arr[arr_cnt].y = y;
+            arr_cnt++;
         }
         map[y][x].walkable = FALSE;
     }
@@ -214,6 +215,7 @@ void setRoomFloor(void)
             map[y][x].color = COLOR_PAIR(ITEM_COLOR);    
             pos_arr[arr_cnt].x = x;
             pos_arr[arr_cnt].y = y;
+            arr_cnt++;
         }
         map[y][x].walkable = FALSE;
     }
@@ -230,6 +232,7 @@ void setRoomFloor(void)
             map[y][x].color = COLOR_PAIR(ITEM_COLOR);
             pos_arr[arr_cnt].x = x;
             pos_arr[arr_cnt].y = y;
+            arr_cnt++;
         }
         map[y][x].walkable = FALSE;
     }
