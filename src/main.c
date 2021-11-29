@@ -79,7 +79,7 @@ int radius = 13;
 int batteryFlag = 0;
 
 // test Postion array
-Position pos_arr[12];
+Position pos_arr[6];
 
 int damageflag = 0; 
 

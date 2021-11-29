@@ -20,7 +20,8 @@ void addCardkey(void){
 }
 
 void callItem(Tile* check){
-    if(check->ch == '0' || check->ch == '/'){
+    if(check->ch == '=' && (check->color == COLOR_PAIR(ITEM_COLOR)))
+    {
         if(check->item == 1){
             printMassage("Get key..!!!");
             inven->key++;

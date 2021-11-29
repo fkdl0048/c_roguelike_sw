@@ -68,7 +68,7 @@ void setFirstFloor(void)
         map[y][x].walkable = FALSE;
     }
     // object
-    map[31][23].ch = '[';
+    //map[31][23].ch = '[';
     
 }
 
@@ -169,7 +169,7 @@ void setSecondFloor(void)
 
 void setRoomFloor(void)
 {
-    char ob_ch = '0';
+    char ob_ch = '=';
     //randam_Level
     for (int y = roomY; y < roomY + roomHeight; y++)
     {
@@ -188,20 +188,60 @@ void setRoomFloor(void)
     // 해당 좌표들 배열로 만들어서 포지션을 rand()설정
     // object 무조건 수정
     int arr_cnt = 0;
-    for(int y = roomY + 4; y < roomY + roomHeight; y+= 3){
-        for(int x = roomX + 5;x < roomX + roomWidth; x += 10){
+    for(int y = roomY, x = roomX + 3; x < roomX + roomWidth - 3; x++)
+    {
+        if (x == roomX + 3)
+            map[y][x].ch = '<';
+        else if (x == roomX + roomWidth - 4)
+            map[y][x].ch = '>';
+        else
             map[y][x].ch = ob_ch;
-            map[y][x + 1].ch = ob_ch;
-            map[y][x].transparent = FALSE;
-            map[y][x].walkable = FALSE;
-            map[y][x + 1].walkable = FALSE;
-            map[y][x + 1].transparent = FALSE;
-            pos_arr[arr_cnt].y = y;
+        if (x == roomX + roomWidth / 3 || x == roomX + 2 * roomWidth / 3)
+        {
+            map[y][x].color = COLOR_PAIR(ITEM_COLOR);
             pos_arr[arr_cnt].x = x;
-            arr_cnt++;
             pos_arr[arr_cnt].y = y;
-            pos_arr[arr_cnt].x = x+1;
-            arr_cnt++;
+        }
+        map[y][x].walkable = FALSE;
+    }
+    for(int y = roomY + 3, x = roomX; y < roomY + roomHeight - 3; y++)
+    {
+        if (y == roomY + 3)
+            map[y][x].ch = '^';
+        else if (y == roomY + roomHeight - 4)
+            map[y][x].ch = 'v';
+        else
+            map[y][x].ch = ob_ch;
+        if (y == roomY + roomHeight / 3 || y == roomY + 2 * roomHeight / 3)
+        {
+            map[y][x].color = COLOR_PAIR(ITEM_COLOR);    
+            pos_arr[arr_cnt].x = x;
+            pos_arr[arr_cnt].y = y;
+        }
+        map[y][x].walkable = FALSE;
+    }
+    for(int y = roomY + 3, x = roomX + roomWidth - 1; y < roomY + roomHeight - 3; y++)
+    {
+        if (y == roomY + 3)
+            map[y][x].ch = '^';
+        else if (y == roomY + roomHeight - 4)
+            map[y][x].ch = 'v';
+        else
+            map[y][x].ch = ob_ch;
+        if (y == roomY + roomHeight / 3 || y == roomY + 2 * roomHeight / 3)
+        {
+            map[y][x].color = COLOR_PAIR(ITEM_COLOR);
+            pos_arr[arr_cnt].x = x;
+            pos_arr[arr_cnt].y = y;
+        }
+        map[y][x].walkable = FALSE;
+    }
+    for(int y = roomY + 8; y <= roomY + 10; y++){
+        for(int x = roomX + 5; x <= roomX + roomWidth - 5; x++)
+        {
+            map[y][x].ch = ob_ch;
+            map[y][x].walkable = FALSE;
+            map[y][x].transparent = FALSE;
         }
     }
     callRandom();

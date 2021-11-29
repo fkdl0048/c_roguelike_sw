@@ -19,6 +19,7 @@ bool setup(void)
         init_pair(BATTERY_COLOR, COLOR_BLACK, COLOR_GREEN);
         init_pair(BATTERY_COLOR_WARNING, COLOR_BLACK, COLOR_YELLOW);
         init_pair(BATTERY_COLOR_DISCHARGE, COLOR_BLACK, COLOR_RED);
+        init_pair(ITEM_COLOR, COLOR_MAGENTA, COLOR_BLACK);
         return TRUE;
     }
     else

@@ -20,6 +20,7 @@
 #define BATTERY_COLOR 4
 #define BATTERY_COLOR_WARNING 5
 #define BATTERY_COLOR_DISCHARGE 6
+#define ITEM_COLOR 7
 
 //좌표
 typedef struct //구조체 선언
@@ -166,7 +167,7 @@ extern Position roomPos[10];
 extern Randam_Level *randam_Level;
 //extern Entity* npc; //npc 생성 추가
 extern Quiz* quiz;
-extern Position pos_arr[12];
+extern Position pos_arr[6];
 extern NpcEntity* npc; //npc 생성 추가 (변경)
 extern NpcEntity* secondNpc;
 
