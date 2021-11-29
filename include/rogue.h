@@ -17,7 +17,9 @@
 #define VISIBLE_COLOR 1
 #define SEEN_COLOR 2
 #define NPC_COLOR 3
-#define NPC_POV_COLOR 4
+#define BATTERY_COLOR 4
+#define BATTERY_COLOR_WARNING 5
+#define BATTERY_COLOR_DISCHARGE 6
 
 //좌표
 typedef struct //구조체 선언
@@ -152,6 +154,9 @@ bool isInMap(int y, int x);
 bool lineOfSight(Position origin, Position target);
 int getSign(int a);
 
+//battery.c functions
+void updateBattery(void);
+
 
 extern Entity* player; //전역변수 공유 -> 다른 소스파일에 정의가 되어 있으니 찾아가서 사용할 것 이라는 뜻
 extern Tile** map;
@@ -168,5 +173,6 @@ extern int direction;
 extern char answer[3];
 extern int curLocationFlag;
 extern int damageflag;
+extern int batteryFlag;
 
 #endif

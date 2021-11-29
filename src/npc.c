@@ -43,7 +43,7 @@ int npc_collision(NpcEntity *npc_){
         for(int y = npc_->pos.y + 1, x = npc_->pos.x - 1; x <= npc_->pos.x + 1; x++)
             if (y == player->pos.y && x == player->pos.x)
                 return 1;
-        for(int y = npc_->pos.y + 2;y <= npc_->pos.y + 4; y++){
+        for(int y = npc_->pos.y + 2;y <= npc_->pos.y + 3; y++){
             for(int x = npc_->pos.x - 2; x <= npc_->pos.x + 3; x++){
                 if (y == player->pos.y && x == player->pos.x)
                     return 1;
@@ -51,11 +51,11 @@ int npc_collision(NpcEntity *npc_){
         }
     }
     else if(npc_->direction == 1){
-        for(int y = npc_->pos.y , x = npc_->pos.x + 1; x <= npc_->pos.x + 2; x++)
+        for(int y = npc_->pos.y , x = npc_->pos.x + 1; x <= npc_->pos.x + 1; x++)
             if (y == player->pos.y && x == player->pos.x)
                 return 1;
         for(int y = npc_->pos.y - 1;y <= npc_->pos.y + 1; y++){
-            for(int x = npc_->pos.x + 3; x <= npc_->pos.x + 8; x++){
+            for(int x = npc_->pos.x + 2; x <= npc_->pos.x + 4; x++){
                 if (y == player->pos.y && x == player->pos.x)
                     return 1;
             }
@@ -65,7 +65,7 @@ int npc_collision(NpcEntity *npc_){
         for(int y = npc_->pos.y - 1, x = npc_->pos.x - 1; x <= npc_->pos.x + 1; x++)
             if (y == player->pos.y && x == player->pos.x)
                 return 1;
-        for(int y = npc_->pos.y - 2;y >= npc_->pos.y - 4; y--){
+        for(int y = npc_->pos.y - 2;y >= npc_->pos.y - 3; y--){
             for(int x = npc_->pos.x - 3; x <= npc_->pos.x + 2; x++){
                 if (y == player->pos.y && x == player->pos.x)
                     return 1;
@@ -73,11 +73,11 @@ int npc_collision(NpcEntity *npc_){
         }
     }
     else if(npc_->direction == 3){
-        for(int y = npc_->pos.y , x = npc_->pos.x - 1; x >= npc_->pos.x - 2; x--)
+        for(int y = npc_->pos.y , x = npc_->pos.x - 1; x >= npc_->pos.x - 1; x--)
             if (y == player->pos.y && x == player->pos.x)
                 return 1;
         for(int y = npc_->pos.y - 1;y <= npc_->pos.y + 1; y++){
-            for(int x = npc_->pos.x - 3; x >= npc_->pos.x - 8; x--){
+            for(int x = npc_->pos.x - 2; x >= npc_->pos.x - 4; x--){
                 if (y == player->pos.y && x == player->pos.x)
                     return 1;
             }
@@ -96,7 +96,7 @@ void drawNpcPov(NpcEntity *npc_){
     if(npc_->direction == 0){
         for(int y = npc_->pos.y + 1, x = npc_->pos.x - 1; x <= npc_->pos.x + 1; x++)
             mvaddch(y, x, '.' | COLOR_PAIR(NPC_COLOR));
-        for(int y = npc_->pos.y + 2;y <= npc_->pos.y + 4; y++){
+        for(int y = npc_->pos.y + 2;y <= npc_->pos.y + 3; y++){
             for(int x = npc_->pos.x - 2; x <= npc_->pos.x + 3; x++){
                 if (check_map(x, y))
                     mvaddch(y, x, '.' | COLOR_PAIR(NPC_COLOR));
@@ -104,11 +104,11 @@ void drawNpcPov(NpcEntity *npc_){
         }
     }
     else if(npc_->direction == 1){
-        for(int y = npc_->pos.y , x = npc_->pos.x + 1; x <= npc_->pos.x + 2; x++)
+        for(int y = npc_->pos.y , x = npc_->pos.x + 1; x <= npc_->pos.x + 1; x++)
             if (check_map(x, y))
                 mvaddch(y, x, '.' | COLOR_PAIR(NPC_COLOR));
         for(int y = npc_->pos.y - 1;y <= npc_->pos.y + 1; y++){
-            for(int x = npc_->pos.x + 3; x <= npc_->pos.x + 8; x++){
+            for(int x = npc_->pos.x + 2; x <= npc_->pos.x + 4; x++){
                 if (check_map(x, y))
                     mvaddch(y, x, '.' | COLOR_PAIR(NPC_COLOR));
             }
@@ -117,7 +117,7 @@ void drawNpcPov(NpcEntity *npc_){
     else if(npc_->direction == 2){
         for(int y = npc_->pos.y - 1, x = npc_->pos.x - 1; x <= npc_->pos.x + 1; x++)
             mvaddch(y, x, '.' | COLOR_PAIR(NPC_COLOR));
-        for(int y = npc_->pos.y - 2;y >= npc_->pos.y - 4; y--){
+        for(int y = npc_->pos.y - 2;y >= npc_->pos.y - 3; y--){
             for(int x = npc_->pos.x - 3; x <= npc_->pos.x + 2; x++){
                 if (check_map(x, y))
                     mvaddch(y, x, '.' | COLOR_PAIR(NPC_COLOR));
@@ -125,11 +125,11 @@ void drawNpcPov(NpcEntity *npc_){
         }
     }
     else if(npc_->direction == 3){
-        for(int y = npc_->pos.y , x = npc_->pos.x - 1; x >= npc_->pos.x - 2; x--)
+        for(int y = npc_->pos.y , x = npc_->pos.x - 1; x >= npc_->pos.x - 1; x--)
             if (check_map(x, y))
                 mvaddch(y, x, '.' | COLOR_PAIR(NPC_COLOR));
         for(int y = npc_->pos.y - 1;y <= npc_->pos.y + 1; y++){
-            for(int x = npc_->pos.x - 3; x >= npc_->pos.x - 8; x--){
+            for(int x = npc_->pos.x - 2; x >= npc_->pos.x - 4; x--){
                 if (check_map(x, y))
                     mvaddch(y, x, '.' | COLOR_PAIR(NPC_COLOR));
             }

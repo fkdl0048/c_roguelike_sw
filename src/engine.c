@@ -16,7 +16,10 @@ bool setup(void)
         init_pair(VISIBLE_COLOR, COLOR_WHITE, COLOR_BLACK);
         init_pair(SEEN_COLOR, COLOR_BLUE, COLOR_BLACK);
         init_pair(NPC_COLOR, COLOR_RED, COLOR_BLACK);
-        init_pair(NPC_POV_COLOR, COLOR_BLACK, COLOR_RED);
+        init_pair(BATTERY_COLOR, COLOR_BLACK, COLOR_GREEN);
+        init_pair(BATTERY_COLOR_WARNING, COLOR_BLACK, COLOR_YELLOW);
+        init_pair(BATTERY_COLOR_DISCHARGE, COLOR_BLACK, COLOR_RED);
+
         return TRUE;
     }
     else

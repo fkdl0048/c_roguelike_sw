@@ -37,6 +37,19 @@ void drawRect(int x,int y,int width, int height)
     }
 }
 
+void drawBattery(void)
+{
+    for(int i = 0; i < 2 * (radius - 3); i += 2)
+    {
+        if (radius - 3 > 5)
+            mvaddch(batteryFrameY + 2, batteryFrameX + 3 + i, ' ' | COLOR_PAIR(BATTERY_COLOR));
+        else if (radius - 3 > 2)
+            mvaddch(batteryFrameY + 2, batteryFrameX + 3 + i, ' ' | COLOR_PAIR(BATTERY_COLOR_WARNING));
+        else
+            mvaddch(batteryFrameY + 2, batteryFrameX + 3 + i, ' ' | COLOR_PAIR(BATTERY_COLOR_DISCHARGE));
+    }
+}
+
 void drawFrame(void)
 {
     drawRect(0,0,MAP_WIDTH,MAP_HEIGHT); // 메인 화면 프레임
@@ -44,6 +57,7 @@ void drawFrame(void)
     drawRect(timerFrameX,timerFrameY,timerFrameWidth,timerFrameHeight); // 타이머 프레임
     drawRect(invenFrameX,invenFrameY,invenFrameWidth,invenFrameHeight); // 인벤토리 프레임
     drawRect(massageBoxFrameX,massageBoxFrameY,massageBoxWidth,massageBoxHeight); // 메세지 박스 프레임
+    drawRect(batteryFrameX,batteryFrameY,batteryFrameWidth,batteryFrameHeight); // 메세지 박스 프레임
 }
 
 void drawCurLocation(void){
@@ -93,6 +107,7 @@ void drawEverything(void)
     drawCurLocation();
     drawTimer();
     drawInventory();
+    drawBattery();
     if (curLocationFlag == 1){
         drawNpc(npc);
         drawNpc(secondNpc);

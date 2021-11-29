@@ -3,7 +3,6 @@
 void makeFOV()
 { 
     int y, x, distance;
-    int RADIUS = 15;
     Position target;
 
     map[player->pos.y][player->pos.x].visible = TRUE;
@@ -11,7 +10,7 @@ void makeFOV()
 
     target = npc->pos;
     distance = getDistance(player->pos, target);
-    if (distance < RADIUS)
+    if (distance < radius)
     { 
         if (isInMap(target.y, target.x) && lineOfSight(player->pos, target))
         { 
@@ -22,7 +21,7 @@ void makeFOV()
 
     target = secondNpc->pos;
     distance = getDistance(player->pos, target);
-    if (distance < RADIUS)
+    if (distance < radius)
     { 
         if (isInMap(target.y, target.x) && lineOfSight(player->pos, target))
         { 
@@ -31,15 +30,15 @@ void makeFOV()
         } 
     }
 
-  for (y = player->pos.y - RADIUS; y < player->pos.y + RADIUS; y++)
+  for (y = player->pos.y - radius; y < player->pos.y + radius; y++)
   { 
-    for (x = player->pos.x - RADIUS; x < player->pos.x + RADIUS; x++)
+    for (x = player->pos.x - radius; x < player->pos.x + radius; x++)
     { 
       target.y = y;
       target.x = x;
       distance = getDistance(player->pos, target);
 
-      if (distance < RADIUS)
+      if (distance < radius)
       { 
         if (isInMap(y, x) && lineOfSight(player->pos, target))
         { 
@@ -54,14 +53,13 @@ void makeFOV()
 void clearFOV()
 { 
   int y, x;
-  int RADIUS = 15;
   npc->visible = FALSE;
   npc->seen = FALSE;
   secondNpc->visible = FALSE;
   secondNpc->seen = FALSE;
-  for (y = player->pos.y - RADIUS; y < player->pos.y + RADIUS; y++)
+  for (y = player->pos.y - radius - 1; y < player->pos.y + radius + 1; y++)
   { 
-    for (x = player->pos.x - RADIUS; x < player->pos.x + RADIUS; x++)
+    for (x = player->pos.x - radius - 1; x < player->pos.x + radius + 1; x++)
     {
       if (isInMap(y, x))
         map[y][x].visible = FALSE;
@@ -73,8 +71,8 @@ int getDistance(Position origin, Position target)
 { 
   double dy, dx;
   int distance;
-  dx = target.x - origin.x;
-  dy = (target.y - origin.y) * 2;
+  dx = (target.x - origin.x) / 2;
+  dy = (target.y - origin.y);
   distance = floor(sqrt((dx * dx) + (dy * dy)));
 
   return distance;

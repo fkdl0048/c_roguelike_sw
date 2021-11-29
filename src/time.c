@@ -9,8 +9,13 @@ void printTime(void){
 
     if (end_time != ori_time)
     {
+        if (batteryFlag == 3){
+            updateBattery();
+            batteryFlag = 0;
+        }
         npc_move(npc);
         npc_move(secondNpc);
+        batteryFlag++;
     }
 
     int min = end_time / 60;

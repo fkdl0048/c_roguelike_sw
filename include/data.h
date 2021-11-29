@@ -29,6 +29,8 @@ extern int invenFrameX;
 extern int invenFrameY; 
 extern int massageBoxFrameX;
 extern int massageBoxFrameY;
+extern int batteryFrameX;
+extern int batteryFrameY;
 
 // Frame size
 extern int curPosFrameWidth;
@@ -39,12 +41,17 @@ extern int invenFrameWidth;
 extern int invenFrameHeight;
 extern int massageBoxWidth;
 extern int massageBoxHeight;
+extern int batteryFrameWidth;
+extern int batteryFrameHeight;
 
 // time
 extern time_t start_time;
 extern time_t cur_time;
 extern int level_time;
 extern int end_time;
+
+// FOV
+extern int radius;
 
 // etc
 extern int max_lock_room;

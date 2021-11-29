@@ -31,16 +31,20 @@ int invenFrameX = 94;
 int invenFrameY = 10; 
 int massageBoxFrameX = 0;
 int massageBoxFrameY = 25;
+int batteryFrameX = 94;
+int batteryFrameY = 25;
 
 // Frame size
-int curPosFrameWidth = 24;
+int curPosFrameWidth = 23;
 int curPosFrameHeight = 3;
-int timerFrameWidth = 24;
+int timerFrameWidth = 23;
 int timerFrameHeight = 3;
-int invenFrameWidth = 24;
+int invenFrameWidth = 23;
 int invenFrameHeight = 13;
 int massageBoxWidth = 90;
 int massageBoxHeight = 3;
+int batteryFrameWidth = 23;
+int batteryFrameHeight = 3;
 
 
 // 중요 변수들
@@ -71,6 +75,8 @@ Position secondNpcStartPos = {13, 85};
 
 int direction = 0;
 int end_time;
+int radius = 13;
+int batteryFlag = 0;
 
 // test Postion array
 Position pos_arr[12];
