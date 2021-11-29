@@ -1,7 +1,7 @@
 #include <rogue.h>
 
 void printTitle(void){
-    mvaddstr(4,32,"[I Want Go Home, PROFESSOR!]");
+    mvaddstr(4,30,"[I Want Go Home, PROFESSOR...!]");
 }
 
 void drawStartScreen(void)
