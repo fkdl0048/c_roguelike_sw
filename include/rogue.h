@@ -94,7 +94,7 @@ void drawEverything(void);
 
 // engine.c functions
 bool setup(void);
-void gameLoop(void);
+int gameLoop(void);
 void closeGame(void);
 int kbhit(void);
 
@@ -122,6 +122,7 @@ void printTime();
 void printMassage(char *str);
 void callMassageBox(char check);
 void printStartMassage(void);
+void printEndMassage(void);
 
 // ineraction.c functions
 void callInteraction(void);

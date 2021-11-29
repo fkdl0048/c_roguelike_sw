@@ -87,21 +87,27 @@ int main(void)
 {
   Position start_pos;
 
-  start_time = time(NULL);
-
   int compatibleTerminal = setup();
+  
   if (compatibleTerminal){
-    randam_Level = creatRandom();
-    map = createMapTiles(); 
-    start_pos = setupMap();
-    player = createPlayer(start_pos);
-    inven = createInventory();
-    npc = createNpc(npcStartPos, 0);
-    secondNpc = createNpc(secondNpcStartPos, 2);
+    while (1)
+    {
+      start_time = time(NULL);
+      randam_Level = creatRandom();
+      map = createMapTiles(); 
+      start_pos = setupMap();
+      player = createPlayer(start_pos);
+      inven = createInventory();
+      npc = createNpc(npcStartPos, 0);
+      secondNpc = createNpc(secondNpcStartPos, 2);
 
-    // restart 부분 추가
-    gameLoop();
-    
+      level_time = 600;
+      radius = 13;
+      batteryFlag = 0;
+      // restart 부분 추가
+      if(gameLoop())
+        break;
+    }
     closeGame();
   }
   else
@@ -110,6 +116,3 @@ int main(void)
   return 0;
 }
 
-// 2~11
-
-//roompos -> randam_level 사용

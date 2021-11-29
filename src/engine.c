@@ -19,7 +19,6 @@ bool setup(void)
         init_pair(BATTERY_COLOR, COLOR_BLACK, COLOR_GREEN);
         init_pair(BATTERY_COLOR_WARNING, COLOR_BLACK, COLOR_YELLOW);
         init_pair(BATTERY_COLOR_DISCHARGE, COLOR_BLACK, COLOR_RED);
-
         return TRUE;
     }
     else
@@ -30,7 +29,7 @@ bool setup(void)
     }
 }
 
-void gameLoop(void)
+int gameLoop(void)
 {
     int ch;
 
@@ -45,12 +44,17 @@ void gameLoop(void)
         }
         if(kbhit()){
             ch = getch();
-            if (ch == 'q') // 종료키 설정
+            if(ch == 'q') // close
+                return 1;
+            if (ch == 'r') // restart
                 break;
             handleInput(ch);
         }
         drawEverything();
     }
+    
+    printEndMassage();
+    return 0;
 }
 
 void closeGame(void)
