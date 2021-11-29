@@ -31,13 +31,15 @@ void gameLoop(void)
 {
     int ch;
 
+    drawStartScreen();
     drawEverything();
-    printStartMassage();
+    //printStartMassage();
 
     while(1) //사용자로 부터 키 입력받으며 무한루프
     {
         if ((npc_collision(npc) || npc_collision(secondNpc)) && curLocationFlag == 1){
             printMassage("Caught by npc!");
+            drawGameOver();
             break;
         }
         if(kbhit()){
