@@ -25,8 +25,8 @@ void makeFOV()
     { 
         if (isInMap(target.y, target.x) && lineOfSight(player->pos, target))
         { 
-            secondNpc->visible = true;
-            secondNpc->seen = true;
+            secondNpc->visible = TRUE;
+            secondNpc->seen = TRUE;
         } 
     }
 
