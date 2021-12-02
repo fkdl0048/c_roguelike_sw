@@ -20,7 +20,6 @@
 #define BATTERY_COLOR 4
 #define BATTERY_COLOR_WARNING 5
 #define BATTERY_COLOR_DISCHARGE 6
-#define ITEM_COLOR 7
 
 //좌표
 typedef struct //구조체 선언
@@ -82,10 +81,9 @@ typedef struct
 //퀴즈
 typedef struct
 {
-  int n1;
-  int n2;
-  int result;
+  char result;
 }Quiz;
+
 
 
 //draw.c functions
@@ -95,7 +93,7 @@ void drawEverything(void);
 
 // engine.c functions
 bool setup(void);
-int gameLoop(void);
+void gameLoop(void);
 void closeGame(void);
 int kbhit(void);
 
@@ -123,7 +121,6 @@ void printTime();
 void printMassage(char *str);
 void callMassageBox(char check);
 void printStartMassage(void);
-void printEndMassage(void);
 
 // ineraction.c functions
 void callInteraction(void);
@@ -144,9 +141,10 @@ int npc_collision(NpcEntity *npc_);
 void drawNpcPov(NpcEntity *npc_);
 
 //quiz.c
+Quiz* createQuiz();
 void callQuiz(void);
-void inputMessage(void);
-void quizMessage(char *str);
+char inputMessage(void);
+char quizMessage(int index);
 
 // fov.c functions
 void makeFOV();
@@ -167,12 +165,12 @@ extern Position roomPos[10];
 extern Randam_Level *randam_Level;
 //extern Entity* npc; //npc 생성 추가
 extern Quiz* quiz;
-extern Position pos_arr[6];
+extern Position pos_arr[12];
 extern NpcEntity* npc; //npc 생성 추가 (변경)
 extern NpcEntity* secondNpc;
 
 extern int direction;
-extern char answer[3];
+//extern char answer[3];
 extern int curLocationFlag;
 extern int damageflag;
 extern int batteryFlag;
