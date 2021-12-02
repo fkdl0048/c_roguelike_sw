@@ -1,0 +1,57 @@
+#include <rogue.h>
+
+Entity* createPlayer(Position start_pos)
+{
+  Entity* newPlayer = calloc(1, sizeof(Entity)); //동적할당 부분
+
+  newPlayer->pos.y = start_pos.y; //위치, 캐릭터 모양 초기화 부분
+  newPlayer->pos.x = start_pos.x;
+  newPlayer->ch = '@';
+
+  return newPlayer; //해당 포인터 반환
+}
+
+void handleInput(int input) 
+{
+  Position newPos = {player->pos.y, player->pos.x};
+  
+  switch(input)
+  {
+    //move up
+    case KEY_UP:
+    case 'w':
+      newPos.y--;
+      break;
+    //move down
+    case KEY_DOWN:
+    case 's':
+      newPos.y++;
+      break;
+    //move left
+    case KEY_LEFT:
+    case 'a':
+      newPos.x--;
+      break;
+    //move right
+    case KEY_RIGHT:
+    case 'd':
+      newPos.x++;
+      break;
+    case 'p': // 상호작용
+      callInteraction();
+      return;
+    default:
+      break;
+  }
+
+  movePlayer(newPos);
+}
+
+void movePlayer(Position newPos)
+{
+  if(map[newPos.y][newPos.x].walkable) //det검사 / 실제 이동부분
+  {
+    player->pos.y = newPos.y;
+    player->pos.x = newPos.x;
+  }
+}
