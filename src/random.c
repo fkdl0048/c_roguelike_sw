@@ -63,7 +63,7 @@ void callRandom(void){
     if(randam_Level[curLocationFlag - 2].key == 1){
         while (1)
         {
-            ran = rand() % 6;
+            ran = rand() % 12;
             if(map[pos_arr[ran].y][pos_arr[ran].x].item)
                 continue;
             else{
@@ -75,7 +75,7 @@ void callRandom(void){
     if(randam_Level[curLocationFlag - 2].driver == 1){
         while (1)
         {
-            ran = rand() % 6;
+            ran = rand() % 12;
             if(map[pos_arr[ran].y][pos_arr[ran].x].item)
                 continue;
             else{
@@ -87,7 +87,7 @@ void callRandom(void){
     if(randam_Level[curLocationFlag - 2].box == 1){
         while (1)
         {
-            ran = rand() % 6;
+            ran = rand() % 12;
             if(map[pos_arr[ran].y][pos_arr[ran].x].item)
                 continue;
             else{

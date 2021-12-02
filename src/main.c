@@ -30,7 +30,7 @@ int timerFrameY = 5;
 int invenFrameX = 94;
 int invenFrameY = 10; 
 int massageBoxFrameX = 0;
-int massageBoxFrameY = 25;
+int massageBoxFrameY = 24;
 int batteryFrameX = 94;
 int batteryFrameY = 25;
 
@@ -42,7 +42,7 @@ int timerFrameHeight = 3;
 int invenFrameWidth = 23;
 int invenFrameHeight = 13;
 int massageBoxWidth = 90;
-int massageBoxHeight = 3;
+int massageBoxHeight = 4;
 int batteryFrameWidth = 23;
 int batteryFrameHeight = 3;
 
@@ -60,12 +60,12 @@ time_t cur_time;
 Quiz *quiz;
 int level_time = 600; // 10분
 
-char answer[3];
+//char answer[3];
 
 Randam_Level *randam_Level;
 int max_lock_room = 4;
 int max_key = 5;
-int max_quiz = 2;
+int max_quiz = 10;
 int max_box = 1;
 int max_driver = 1;
 
@@ -79,7 +79,7 @@ int radius = 13;
 int batteryFlag = 0;
 
 // test Postion array
-Position pos_arr[6];
+Position pos_arr[12];
 
 int damageflag = 0; 
 
@@ -87,30 +87,22 @@ int main(void)
 {
   Position start_pos;
 
-  
+  start_time = time(NULL);
 
   int compatibleTerminal = setup();
-  
   if (compatibleTerminal){
-    while (1)
-    {
-      curLocationFlag = 0;
-      start_time = time(NULL);
-      randam_Level = creatRandom();
-      map = createMapTiles(); 
-      start_pos = setupMap();
-      player = createPlayer(start_pos);
-      inven = createInventory();
-      npc = createNpc(npcStartPos, 0);
-      secondNpc = createNpc(secondNpcStartPos, 2);
+    randam_Level = creatRandom();
+    map = createMapTiles(); 
+    start_pos = setupMap();
+    player = createPlayer(start_pos);
+    inven = createInventory();
+    npc = createNpc(npcStartPos, 0);
+    secondNpc = createNpc(secondNpcStartPos, 2);
+    quiz = createQuiz();
 
-      level_time = 600;
-      radius = 13;
-      batteryFlag = 0;
-      // restart 부분 추가
-      if(gameLoop())
-        break;
-    }
+    // restart 부분 추가
+    gameLoop();
+    
     closeGame();
   }
   else

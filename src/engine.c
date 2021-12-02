@@ -19,7 +19,7 @@ bool setup(void)
         init_pair(BATTERY_COLOR, COLOR_BLACK, COLOR_GREEN);
         init_pair(BATTERY_COLOR_WARNING, COLOR_BLACK, COLOR_YELLOW);
         init_pair(BATTERY_COLOR_DISCHARGE, COLOR_BLACK, COLOR_RED);
-        init_pair(ITEM_COLOR, COLOR_MAGENTA, COLOR_BLACK);
+
         return TRUE;
     }
     else
@@ -30,15 +30,12 @@ bool setup(void)
     }
 }
 
-int gameLoop(void)
+void gameLoop(void)
 {
     int ch;
 
     drawEverything();
     printStartMassage();
-    
-    start_time = time(NULL);
-    level_time = 600;
 
     while(1) //사용자로 부터 키 입력받으며 무한루프
     {
@@ -48,23 +45,19 @@ int gameLoop(void)
         }
         if(kbhit()){
             ch = getch();
-            if(ch == 'q') // close
-                return 1;
-            if (ch == 'r') // restart
+            if (ch == 'q') // 종료키 설정
                 break;
             handleInput(ch);
         }
         drawEverything();
     }
-    
-    printEndMassage();
-    return 0;
 }
 
 void closeGame(void)
 {
     endwin(); // ncurses 시스템종료
     free(player); // player 동적할당 해제
+    free(quiz); // quiz 동적할당 해제
     freeMap(); //map 동적할당 해제
 }
 

@@ -37,7 +37,6 @@ void handleInput(int input)
     case 'd':
       newPos.x++;
       break;
-    case 'z':
     case 'p': // 상호작용
       callInteraction();
       return;

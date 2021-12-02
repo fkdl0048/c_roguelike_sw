@@ -1,26 +1,29 @@
 #include <rogue.h>
 
 Quiz* createQuiz(void){
-    Quiz* tmp = calloc(1,sizeof(Quiz));
+    Quiz* tmp = (Quiz*)malloc(sizeof(Quiz) * 10);
     
-    tmp->n1 = (rand()%99) + 1;
-    tmp->n2 = (rand()%99) + 1;
-    tmp->result= tmp->n1 + tmp->n2;
+    tmp[0].result = '3';
+    tmp[1].result = '1';
+    tmp[2].result = '2';
+    tmp[3].result = '4';
+    tmp[4].result = '2';
+    tmp[5].result = '3';
+    tmp[6].result = '1';
+    tmp[7].result = '2';
+    tmp[8].result = '3';
+    tmp[9].result = '1';
 
     return tmp;
 }
 
-void checkAnswer(void){
-    int ch;
-
-    if(ft_atoi(answer) == quiz->result){
-        printMassage("Correct");
-        map[roomY + 1][roomX + roomWidth / 2].ch = '/';
-        map[roomY + 1][roomX + roomWidth / 2].item = '/';
-        map[roomY + 1][roomX + roomWidth / 2].walkable = FALSE;
+void checkAnswer(char answer, int index){
+    if(answer == quiz[index].result){
+        printMassage("That's right, here's the rusty key.");
+        inven->key++;
     }
     else{
-        printMassage("Wrong Answer");
+        printMassage("Wrong Answer, Study some more.");
         level_time -= 60;
         map[roomY + 1][roomX + roomWidth / 2].ch = ' ';
         map[roomY + 1][roomX + roomWidth / 2].walkable = TRUE;
@@ -28,22 +31,19 @@ void checkAnswer(void){
         drawEverything();
     }
     randam_Level[curLocationFlag-2].quiz = 0;
-
-    free(quiz);
 }
 
 void callQuiz(void){
-    quiz = createQuiz();
+    int index;
+    char answer;
+    index = rand()%10;
+    
     drawEverything();
     printMassage("Quiz!!");
+    printMassage("If you answer correctly, I will give you the rusty key.");
     drawEverything();
-    char s[10];
-    strcpy(s,ft_itoa(quiz->n1));
-    strcat(s,"+");
-    strcat(s,ft_itoa(quiz->n2));
-    strcat(s,"=");
-    quizMessage(s);
+    answer = quizMessage(index);
     drawEverything();
-    checkAnswer();
+    checkAnswer(answer, index);
     halfdelay(5);
 }
