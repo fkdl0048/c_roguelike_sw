@@ -78,19 +78,19 @@ void callMassageBox(char check){
 }
 
 char inputMessage(void){
-    char ch[1];
+    char ch;
     
     nocbreak();
     flushinp();
     echo();
     curs_set(1);
     mvaddstr(27,47,">>>");
-    mvgetnstr(27,50,ch,1);
+    ch = mvgetch(27,50);
     cbreak();
     curs_set(0);
     noecho();
 
-    return ch[0];
+    return ch;
 }
 
 

@@ -43,6 +43,7 @@ void callQuiz(void){
     printMassage("If you answer correctly, I will give you the rusty key.");
     drawEverything();
     answer = quizMessage(index);
+    getch();
     drawEverything();
     checkAnswer(answer, index);
     halfdelay(5);
