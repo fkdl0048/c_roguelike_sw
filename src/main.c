@@ -60,14 +60,13 @@ time_t cur_time;
 Quiz *quiz;
 int level_time = 600; // 10분
 
-char answer[3];
-
 Randam_Level *randam_Level;
 int max_lock_room = 4;
 int max_key = 5;
-int max_quiz = 2;
+int max_quiz = 10;
 int max_box = 1;
 int max_driver = 1;
+int max_battery = 7;
 
 Position roomPos[10];
 Position npcStartPos = {4, 6};
@@ -103,6 +102,7 @@ int main(void)
       inven = createInventory();
       npc = createNpc(npcStartPos, 0);
       secondNpc = createNpc(secondNpcStartPos, 2);
+      quiz = createQuiz();
 
       level_time = 600;
       radius = 13;

@@ -10,7 +10,7 @@ Inventory *createInventory(void){
 
 void addCardkey(void){
     if(inven->driver == 1){
-        printMassage("used driver..!!!");
+        printMassage("Used driver..!!!");
         inven->driver--;
         inven->cardkey++;
     }
@@ -23,18 +23,23 @@ void callItem(Tile* check){
     if(check->ch == '=' && (check->color == COLOR_PAIR(ITEM_COLOR)))
     {
         if(check->item == 1){
-            printMassage("Get key..!!!");
+            printMassage("I got a key..!!!");
             inven->key++;
             check->item = 0;
         }
         else if(check->item == 2){
-            printMassage("Get dirver..!!!");
+            printMassage("I got a dirver..!!!");
             inven->driver++;
             check->item = 0;
         }
         else if(check->item == 3){
-            printMassage("This is box..!!!");
+            printMassage("I found a box..!!!");
             addCardkey();
+        }
+        else if(check->item == 4){
+            printMassage("I got a battery..!!!");
+            radius = 13;
+            check->item = 0;
         }
         else{
             printMassage("Nothing");

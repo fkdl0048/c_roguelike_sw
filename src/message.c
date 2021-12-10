@@ -13,9 +13,57 @@ void printMassage(char *str){
     }
 }
 
-void quizMessage(char *str){//퀴즈 출력 중 시간 표시 안되는 것, inputMessage 자동으로 입력되는 것 수정필요
-    mvaddstr(27,3,str);
-    inputMessage();
+char quizMessage(int index){
+    char ch;
+
+    if(index == 0){
+        mvaddstr(26,3,"b = 3 > 5 ? 3 : 4, b = ?");
+        mvaddstr(27,3,"(1) 2 (2) 3 (3) 4 (4) 5");
+    }
+    else if(index == 1){
+        mvaddstr(26,3,"0111 & 0100 = ?");
+        mvaddstr(27,3,"(1) 0100 (2) 0101 (3) 0111 (4) 0110");
+    }
+    else if(index == 2){
+        mvaddstr(26,3,"0110 | 1010 = ?");
+        mvaddstr(27,3,"(1) 1101 (2) 1110 (3) 1100 (4) 1111");
+    }
+    else if(index == 3){
+        mvaddstr(26,3,"0001 ^ 0011 = ?");
+        mvaddstr(27,3,"(1) 1111 (2) 0111 (3) 0011 (4) 0010");
+    }
+    else if(index == 4){
+        mvaddstr(26,3,"Where is the capital of Korea?");
+        mvaddstr(27,3,"(1) Busan (2)Seoul (3) Incheon (4) Daegu");
+    }
+    else if(index == 5){
+        mvaddstr(26,3,"What the last name is SW basic Design professor?");
+        mvaddstr(27,3,"(1) Kim (2)Park (3) Choi (4) Lee");
+    }
+    else if(index == 6){
+        mvaddstr(26,3,"a = 13 > 12 ? 11 : 14, a = ?");
+        mvaddstr(27,3,"(1) 11 (2) 12 (3) 13 (4) 14");
+    }
+    else if(index == 7){
+        mvaddstr(26,3,"10<11 ? (10<12 ? 12 : 13) : (13<14 ? 11 : 14)");
+        mvaddstr(27,3,"(1) 11 (2) 12 (3) 13 (4) 14");
+    }
+    else if(index == 8){
+        mvaddstr(26,3,"What is the name of our university?");
+        mvaddstr(27,3,"(1) Sajong (2) Sojong (3) Sejong (4) Sujong");
+    }
+    else if(index == 9){
+        mvaddstr(26,3,"(0001 | 0101) | ~0110 & 0111 = ?");
+        mvaddstr(27,3,"(1) 0101 (2) 0111 (3) 0011 (4) 0110");
+    }
+    else{
+        return 0;
+    }
+        
+    ch = inputMessage();
+    drawEverything();
+
+    return ch;
 }
 
 void callMassageBox(char check){
@@ -29,25 +77,22 @@ void callMassageBox(char check){
     }
 }
 
-void inputMessage(void){
-    char *scan[100];
+char inputMessage(void){
+    char ch[1];
+    
+    nocbreak();
+    flushinp();
     echo();
     curs_set(1);
-    mvgetnstr(27,10,answer,3);
-    //mvscanw(27,10,"%s",scan);
-    mvaddch(27,88,'<' | A_BLINK);
+    mvaddstr(27,47,">>>");
+    mvgetnstr(27,50,ch,1);
+    cbreak();
     curs_set(0);
     noecho();
-    while (1)
-    {
-        printTime();
-        if(kbhit()){
-            if(getch() == '\n'){
-                break;
-            }
-        }
-    }
+
+    return ch[0];
 }
+
 
 void printStartMassage(void){
     mvaddstr(4,10,"I was studying and it's late... Let's go out before the last train stops!"); //상수 추가하기

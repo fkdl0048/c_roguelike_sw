@@ -71,8 +71,8 @@ int getDistance(Position origin, Position target)
 { 
   double dy, dx;
   int distance;
-  dx = (target.x - origin.x) / 2;
-  dy = (target.y - origin.y);
+  dx = (target.x - origin.x);
+  dy = (target.y - origin.y) * 2;
   distance = floor(sqrt((dx * dx) + (dy * dy)));
 
   return distance;

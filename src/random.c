@@ -9,6 +9,8 @@ Randam_Level *creatRandom(void){
     int quiz_num = max_quiz;
     int dirver_num = max_driver;
     int box_num = max_box;
+    int battery_num = max_battery;
+    
 
     Randam_Level *random = (Randam_Level *)malloc(sizeof(Randam_Level) * 10);
     
@@ -19,6 +21,7 @@ Randam_Level *creatRandom(void){
         random[i].key = 0;
         random[i].lock_room = 0;
         random[i].quiz = 0;
+        random[i].battery = 0;
     }
 
     while (lock_room_num)
@@ -51,6 +54,14 @@ Randam_Level *creatRandom(void){
         if(random[ran].quiz == 0){
             random[ran].quiz++;
             quiz_num--;
+        }
+    }
+    while (battery_num)
+    {
+        ran = rand() % 10;
+        if(random[ran].battery == 0){
+            random[ran].battery++;
+            battery_num--;
         }
     }
     
@@ -92,6 +103,18 @@ void callRandom(void){
                 continue;
             else{
                 map[pos_arr[ran].y][pos_arr[ran].x].item = 3;
+                break;
+            }
+        }
+    }
+    if(randam_Level[curLocationFlag - 2].battery == 1){
+        while (1)
+        {
+            ran = rand() % 6;
+            if(map[pos_arr[ran].y][pos_arr[ran].x].item)
+                continue;
+            else{
+                map[pos_arr[ran].y][pos_arr[ran].x].item = 4;
                 break;
             }
         }

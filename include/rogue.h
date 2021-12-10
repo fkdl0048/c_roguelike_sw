@@ -57,6 +57,7 @@ typedef struct
   int quiz;
   int driver;
   int box;
+  int battery;
 }Randam_Level;
 
 //객체
@@ -145,8 +146,9 @@ void drawNpcPov(NpcEntity *npc_);
 
 //quiz.c
 void callQuiz(void);
-void inputMessage(void);
-void quizMessage(char *str);
+char inputMessage(void);
+char quizMessage(int index);
+Quiz* createQuiz(void);
 
 // fov.c functions
 void makeFOV();
@@ -172,7 +174,6 @@ extern NpcEntity* npc; //npc 생성 추가 (변경)
 extern NpcEntity* secondNpc;
 
 extern int direction;
-extern char answer[3];
 extern int curLocationFlag;
 extern int damageflag;
 extern int batteryFlag;
