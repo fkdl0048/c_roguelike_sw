@@ -48,16 +48,20 @@ int gameLoop(void)
         }
         if(kbhit()){
             ch = getch();
+            handleInput(ch);
             if(ch == 'q') // close
                 return 1;
-            if (ch == 'r') // restart
-                break;
-            handleInput(ch);
+            if (ch == 'r' || clearFlag == 1) 
+                break;// restart
         }
         drawEverything();
     }
-    
-    printEndMassage();
+    if(clearFlag == 1){
+        clearFlag = 0;
+    }
+    else{
+        printEndMassage();
+    }
     return 0;
 }
 

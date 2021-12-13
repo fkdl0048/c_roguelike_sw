@@ -125,6 +125,7 @@ void printMassage(char *str);
 void callMassageBox(char check);
 void printStartMassage(void);
 void printEndMassage(void);
+void printClearMassage(void);
 
 // ineraction.c functions
 void callInteraction(void);
@@ -177,5 +178,7 @@ extern int direction;
 extern int curLocationFlag;
 extern int damageflag;
 extern int batteryFlag;
+
+extern int clearFlag;
 
 #endif

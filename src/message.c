@@ -69,8 +69,8 @@ char quizMessage(int index){
 void callMassageBox(char check){
     switch (check)
     {
-    case '/':
-        printMassage("get?");
+    case '*':
+        printMassage("It's an ordinary plant pot.");
         break;
     default:
         break;
@@ -78,19 +78,19 @@ void callMassageBox(char check){
 }
 
 char inputMessage(void){
-    char ch;
+    char ch[1];
     
     nocbreak();
     flushinp();
     echo();
     curs_set(1);
     mvaddstr(27,47,">>>");
-    ch = mvgetch(27,50);
+    mvgetnstr(27,50,ch,1);
     cbreak();
     curs_set(0);
     noecho();
 
-    return ch;
+    return ch[0];
 }
 
 
@@ -150,4 +150,24 @@ void printEndMassage(void){
             }
         }
     }
+}
+
+void printClearMassage(void){
+    mvaddstr(4, 15," ______  __       _______      ___      .______       __   __");
+    mvaddstr(5, 15,"/      ||  |     |   ____|    /   \\     |   _  \\     |  | |  |");
+    mvaddstr(6, 15,"|  ,__ '|  |     |  |__      /  ^  \\    |  |_)  |    |  | |  | ");
+    mvaddstr(7, 15,"|  |    |  |     |   __|    /  /_\\  \\   |      /     |  | |  |");
+    mvaddstr(8, 15,"|  `__. |   `___.|  |____  /  _____  \\  |  |\\  \\__.  |__| |__|");
+    mvaddstr(9, 15,"\\______||_______||_______|/__/     \\__\\ | _| `.___|  (__) (__)");
+    mvaddstr(12, 33,"If you want to start again,");
+    mvaddstr(14, 41,"Press Enter");
+    while (1)
+    {
+        if(kbhit()){
+            if(getch() == '\n'){
+                break;
+            }
+        }
+    }
+    clearFlag = 1;
 }

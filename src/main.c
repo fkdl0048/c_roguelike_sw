@@ -74,19 +74,18 @@ Position secondNpcStartPos = {13, 85};
 
 int direction = 0;
 int end_time;
-int radius = 13;
+int radius;
 int batteryFlag = 0;
 
 // test Postion array
 Position pos_arr[6];
 
 int damageflag = 0; 
+int clearFlag = 0;
 
 int main(void)
 {
   Position start_pos;
-
-  
 
   int compatibleTerminal = setup();
   
@@ -105,7 +104,7 @@ int main(void)
       quiz = createQuiz();
 
       level_time = 600;
-      radius = 13;
+      radius = 15;
       batteryFlag = 0;
       // restart 부분 추가
       if(gameLoop())

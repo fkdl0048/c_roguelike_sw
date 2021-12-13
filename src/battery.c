@@ -2,6 +2,6 @@
 
 void updateBattery(void)
 {
-    if (radius > 3)
+    if (radius > 5)
         radius --;
 }

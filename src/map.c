@@ -67,6 +67,16 @@ void setFirstFloor(void)
         map[y][x].ch = '[';
         map[y][x].walkable = FALSE;
     }
+    // 1층 오브젝트
+    map[17][39].ch = '*';
+    map[17][39].walkable = FALSE;
+    map[17][52].ch = '*';
+    map[17][52].walkable = FALSE;
+
+    map[5][5].ch = '*';
+    map[5][5].walkable = FALSE;
+    map[5][86].ch = '*';
+    map[5][86].walkable = FALSE;
 }
 
 void setSecondFloor(void)
@@ -244,6 +254,11 @@ void setRoomFloor(void)
             map[y][x].transparent = FALSE;
         }
     }
+    //방 오브젝트 배치
+    map[21][56].ch = '*'; 
+    map[21][56].walkable = FALSE; 
+    map[21][35].ch = '*'; 
+    map[21][35].walkable = FALSE; 
     callRandom();
 }
 

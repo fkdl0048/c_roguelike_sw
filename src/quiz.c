@@ -41,9 +41,12 @@ void callQuiz(void){
     drawEverything();
     printMassage("Quiz!!");
     printMassage("If you answer correctly, I will give you the rusty key.");
+    massageBoxFrameY = 24;
+    massageBoxHeight = 4;
     drawEverything();
     answer = quizMessage(index);
-    getch();
+    massageBoxFrameY = 25;
+    massageBoxHeight = 3;
     drawEverything();
     checkAnswer(answer, index);
     halfdelay(5);

@@ -49,7 +49,7 @@ void callMoveMap(char check){
     else if (check == '-' || check == '|'){
         if(curLocationFlag == 0 && check == '-'){
             if(inven->cardkey > 0){
-                printMassage("clear!");
+                printClearMassage();
                 inven->cardkey--;
             }
             else{

@@ -39,11 +39,11 @@ void drawRect(int x,int y,int width, int height)
 
 void drawBattery(void)
 {
-    for(int i = 0; i < 2 * (radius - 3); i += 2)
+    for(int i = 0; i < 2 * (radius - 5); i += 2)
     {
-        if (radius - 3 > 5)
+        if (radius - 5 > 5)
             mvaddch(batteryFrameY + 2, batteryFrameX + 3 + i, ' ' | COLOR_PAIR(BATTERY_COLOR));
-        else if (radius - 3 > 2)
+        else if (radius - 5 > 2)
             mvaddch(batteryFrameY + 2, batteryFrameX + 3 + i, ' ' | COLOR_PAIR(BATTERY_COLOR_WARNING));
         else
             mvaddch(batteryFrameY + 2, batteryFrameX + 3 + i, ' ' | COLOR_PAIR(BATTERY_COLOR_DISCHARGE));
