@@ -38,7 +38,6 @@ int gameLoop(void)
     printStartMassage();
     
     start_time = time(NULL);
-    level_time = 600;
 
     while(1) //사용자로 부터 키 입력받으며 무한루프
     {
@@ -46,22 +45,27 @@ int gameLoop(void)
             printMassage("Caught by npc!");
             break;
         }
+        if(clearFlag > 0){
+            break;
+        }
         if(kbhit()){
             ch = getch();
             handleInput(ch);
             if(ch == 'q') // close
                 return 1;
-            if (ch == 'r' || clearFlag == 1) 
+            if (ch == 'r'){
+                clearFlag = 1;
                 break;// restart
+            }
+                
         }
         drawEverything();
     }
-    if(clearFlag == 1){
-        clearFlag = 0;
-    }
-    else{
+    if(clearFlag != 1){
         printEndMassage();
     }
+    clearFlag = 0;
+
     return 0;
 }
 

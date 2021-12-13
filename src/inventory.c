@@ -38,7 +38,7 @@ void callItem(Tile* check){
         }
         else if(check->item == 4){
             printMassage("I got a battery..!!!");
-            radius = 13;
+            radius = 15;
             check->item = 0;
         }
         else{

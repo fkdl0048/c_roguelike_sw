@@ -25,8 +25,8 @@ void printTime(void){
     strcat(timer,ft_itoa(sec));
     mvaddstr(timerFrameY+2,timerFrameX+3,timer);
 
-    if(end_time == 0){
-        // clear부분
+    if(end_time <= 0){
+        clearFlag = 2;
     }
 }
 // draw 부분으로 이동
