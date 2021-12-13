@@ -84,6 +84,12 @@ void drawInventory(void){
     mvaddstr(invenFrameY+2,invenFrameX+3,strcat(rustykey_str,ft_itoa(inven->key)));
     mvaddstr(invenFrameY+4,invenFrameX+3,strcat(driver_str,ft_itoa(inven->driver)));
     mvaddstr(invenFrameY+6,invenFrameX+3,strcat(cardkey_str,ft_itoa(inven->cardkey)));
+    mvaddstr(invenFrameY+7, invenFrameX+2, "---------------------");
+    mvaddstr(invenFrameY+8, invenFrameX+3, "+-+ : Door");
+    mvaddch(invenFrameY+10, invenFrameX+3, 'X' | COLOR_PAIR(NPC_COLOR));
+    mvaddstr(invenFrameY+10, invenFrameX+4, " : NPC");
+    mvaddch(invenFrameY+12, invenFrameX+3, '=' | COLOR_PAIR(ITEM_COLOR));
+    mvaddstr(invenFrameY+12, invenFrameX+4, " : Interactive Item");
 }
 
 void drawNpc(NpcEntity *npc_)
