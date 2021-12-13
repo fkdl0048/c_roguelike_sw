@@ -66,7 +66,7 @@ int max_key = 5;
 int max_quiz = 2;
 int max_box = 1;
 int max_driver = 1;
-int max_battery = 7;
+int max_battery = 5;
 
 Position roomPos[10];
 Position npcStartPos = {4, 6};

@@ -28,7 +28,7 @@ void callItem(Tile* check){
             check->item = 0;
         }
         else if(check->item == 2){
-            printMassage("I got a dirver..!!!");
+            printMassage("I got a driver..!!!");
             inven->driver++;
             check->item = 0;
         }

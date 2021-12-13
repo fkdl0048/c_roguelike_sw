@@ -9,7 +9,7 @@ void printTime(void){
 
     if (end_time != ori_time)
     {
-        if (batteryFlag == 10){
+        if (batteryFlag == 8){
             updateBattery();
             batteryFlag = 0;
         }
